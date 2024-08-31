@@ -5,6 +5,9 @@ public class Coin
 	
 	public Coin(Denomination denomination, int year)
 	{
-			
+		this.denomination = denomination;
+		this.year = year;
 	}
+	
+	
 }
