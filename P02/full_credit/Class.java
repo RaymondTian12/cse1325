@@ -17,7 +17,7 @@ public class Coin
 			case NICKEL -> 0.05;
 			case DIME -> 0.10;
 			case QUARTER -> 0.25;
-			default: throw new IllegalArgumentException("Invalid denomination: " + denomination);
+			default -> throw new IllegalArgumentException("Invalid denomination: " + denomination);
 		}
 	}
 	
