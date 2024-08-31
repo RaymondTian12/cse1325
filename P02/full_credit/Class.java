@@ -20,4 +20,9 @@ public class Coin
 			default: throw new IllegalArgumentException("Invalid denomination: " + denomination);
 		}
 	}
+	
+	public int getYear()
+	{
+		return year;
+	{
 }
