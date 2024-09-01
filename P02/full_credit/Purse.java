@@ -16,11 +16,11 @@ public class Purse
 		for (Coin coin : coins)
 		{
 			totalValue += coin.getValue();
-			if (coin.getValue() < earliestDate)
+			if (coin.getYear() < earliestDate)
 			{
 				earliestDate = coin.getYear();
 			}
-			if (coin.getValue() > latestDate)
+			if (coin.getYear() > latestDate)
 			{
 				latestDate = coin.getYear();
 			}
