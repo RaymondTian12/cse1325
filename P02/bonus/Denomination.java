@@ -17,8 +17,8 @@ public enum Denomination
 	}
 	
 	@Override
-	public string toString()
+	public String toString()
 	{
-		return name().toLowercase();
+		return name().toLowerCase();
 	}
 }
