@@ -14,6 +14,11 @@ public class Coin
 		return denomination.getValue();
 	}
 	
+	public int getYear()
+	{
+		return year;
+	}
+	
 	@Override
 	public String toString()
 	{
