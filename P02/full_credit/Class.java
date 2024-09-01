@@ -29,5 +29,5 @@ public class Coin
 	public int getYear()
 	{
 		return year;
-	{
+	}
 }
