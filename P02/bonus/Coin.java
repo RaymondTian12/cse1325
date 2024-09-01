@@ -5,6 +5,15 @@ public class Coin
 	
 	public coin(Denomination denomination, int year)
 	{
-	
+		this.denomination = denomination;
+		this.year = year;
 	}
+	
+	public double getValue()
+	{
+		return denomination.getValue();
+	}
+	
+	
 }
+
