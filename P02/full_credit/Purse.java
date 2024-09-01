@@ -7,7 +7,7 @@ public class Purse
 		coins[1] = new Coin(Denomination.NICKEL, 1928);
 		coins[2] = new Coin(Denomination.DIME, 1958);
 		coins[3] = new Coin(Denomination.QUARTER, 1977);
-		coins[5] = new Coin(Denomination.QUARTER, 2000);
+		coins[4] = new Coin(Denomination.QUARTER, 2000);
 		
 		double totalValue = 0;
 		int earliestDate = 2024; // Latest possible year
