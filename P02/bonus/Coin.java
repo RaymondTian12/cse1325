@@ -14,6 +14,10 @@ public class Coin
 		return denomination.getValue();
 	}
 	
-	
+	@Override
+	pubic String toString()
+	{
+		return (year + " " denomination);
+	}
 }
 
