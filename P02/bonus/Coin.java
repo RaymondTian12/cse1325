@@ -3,7 +3,7 @@ public class Coin
 	private Denomination denomination;
 	private int year;
 	
-	public coin(Denomination denomination, int year)
+	public Coin(Denomination denomination, int year)
 	{
 		this.denomination = denomination;
 		this.year = year;
@@ -15,9 +15,9 @@ public class Coin
 	}
 	
 	@Override
-	pubic String toString()
+	public String toString()
 	{
-		return (year + " " denomination);
+		return year + " " + denomination;
 	}
 }
 
