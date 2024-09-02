@@ -23,7 +23,7 @@ public class Coin
 			case NICKEL:
 				return 5.000;
 			case DIME:
-				return (year < 1983) ? 3.110 : 2.500;
+				return (year < 1983) ? 2.500 : 2.268;
 			case QUARTER:
 				return (year < 1965) ? 6.250 : 5.670;
 			default:
