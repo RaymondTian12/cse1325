@@ -10,6 +10,7 @@ public class Purse
 		coins[4] = new Coin(Denomination.QUARTER, 2000);
 		
 		double totalValue = 0;
+		double totalWeight = 0;
 		int earliestDate = 2024; // Latest possible year
 		int latestDate = 1776; // Earliest possible year
 		
@@ -17,6 +18,7 @@ public class Purse
 		{
 			System.out.println(coin);
 			totalValue += coin.getValue();
+			totalWeight += coin.getWeight();
 			if (coin.getYear() < earliestDate)
 			{
 				earliestDate = coin.getYear();
