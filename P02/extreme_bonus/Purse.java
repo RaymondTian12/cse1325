@@ -30,7 +30,7 @@ public class Purse
 
 		}
 		
-		System.out.println("The total value of your purse is: $" + totalValue);
+		System.out.println("The total value of your purse is: $" + totalValue + " weight " + totalWeight);
 		System.out.println("Earliest Year: " + earliestDate);
 		System.out.print("Latest Year: "+ latestDate);
 	}
