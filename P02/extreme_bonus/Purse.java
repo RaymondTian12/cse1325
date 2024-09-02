@@ -30,7 +30,7 @@ public class Purse
 
 		}
 		
-		System.out.printf("The total value of your purse is: $%.2fand weighs %.3f grams" , totalValue, totalWeight);
+		System.out.printf("The total value of your purse is: $%.2f and weighs %.3f grams\n" , totalValue, totalWeight);
 		System.out.println("Earliest Year: " + earliestDate);
 		System.out.print("Latest Year: "+ latestDate);
 	}
