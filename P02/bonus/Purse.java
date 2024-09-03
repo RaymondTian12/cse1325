@@ -11,7 +11,7 @@ public class Purse
 		
 		double totalValue = 0;
 		int earliestDate = 2024; // Latest possible year
-		int latestDate = 1776; // Earliest possible year
+		int latestDate = 1792; // Earliest possible year
 		
 		for (Coin coin : coins)
 		{
@@ -29,8 +29,7 @@ public class Purse
 		}
 		
 		System.out.println("The total value of your purse is: $" + totalValue);
-		System.out.println("Earliest Year: " + earliestDate);
-		System.out.print("Latest Year: "+ latestDate);
+		System.out.print("The earliest year is " + earliestDate + " and the latest Year is "+ latestDate);
 	}
 
 }
