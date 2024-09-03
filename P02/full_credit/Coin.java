@@ -13,16 +13,11 @@ public class Coin
 	{
 		switch(denomination)
 		{
-			case PENNY:
-				return 0.01;
-			case NICKEL:
-				return 0.05;
-			case DIME:
-				return 0.10;
-			case QUARTER:
-				return 0.25;
-			default:
-				throw new IllegalArgumentException("Invalid denomination: " + denomination);
+			case PENNY -> {return 0.01;}
+			case NICKEL -> {return 0.05;}
+			case DIME -> {return 0.10;}
+			case QUARTER -> {return 0.25;}
+			default -> {throw new IllegalArgumentException("Invalid denomination: " + denomination);}
 		}
 	}
 	
