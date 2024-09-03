@@ -29,7 +29,7 @@ public class Purse
 		}
 		
 		System.out.println("The total value of your purse is: $" + totalValue);
-		System.out.print("The earliest year is " + earliestDate + " and the latest Year is "+ latestDate);
+		System.out.print("The earliest year is " + earliestDate + " and the latest year is "+ latestDate);
 	}
 
 }
