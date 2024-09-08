@@ -5,9 +5,9 @@ public class Student
 	private String email;
 	private Account account;
 	
-	public student(String name, int id, String, email)
+	public Student(String name, int id, String email)
 	{
-		if (!email.endsWith("@uta.edu") && !email.endsWith("@mavs.uta.edu")
+		if (!email.endsWith("@uta.edu") && !email.endsWith("@mavs.uta.edu"))
 		{
 			throw new IllegalArgumentException("Non-UTA email addres: " + email);
 		}
