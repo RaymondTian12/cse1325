@@ -22,6 +22,14 @@ public class TestStudent
 			failureCount++;
 		}
 		
+		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0");
+		
+		if (!(student.requestMedia(media)).equals("Playing " + media.toString()))
+		{
+			System.err.println("FAIL: Expected \"" + media.toString() + "\" not \"" + student.requestMedia(media) + "\"");
+			failureCount++;
+		}
+		
 		System.exit(failureCount);
 	}
 }
