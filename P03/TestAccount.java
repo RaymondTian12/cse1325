@@ -13,7 +13,7 @@ public class TestAccount
 		
 		if (account2.getAccountNumber() != 2)
 		{
-			System.err.println("FAIL: Expected Account Number - 1 " + "Actual Account Number - " + account1.getAccountNumber());
+			System.err.println("FAIL: Expected Account Number - 2 " + "Actual Account Number - " + account2.getAccountNumber());
 			System.exit(-1);
 		}
 	}
