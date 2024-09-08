@@ -15,6 +15,6 @@ public class Account
 	
 	public String play(Media media)
 	{
-		return "Playing" + " media.toString();
+		return "Playing " + media.toString();
 	}
 }
