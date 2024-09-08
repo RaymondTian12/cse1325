@@ -12,6 +12,15 @@ public class TestStudent
 			failureCount++;
 		}
 		
+		try
+		{
+			Student nonStudent = new Student("Raymond Tian", 1002199181, "rxt9181@gmail.com"); // Test data
+		}
+		catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+			failureCount++;
+		}
 		
 		System.exit(failureCount);
 	}
