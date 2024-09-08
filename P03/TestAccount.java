@@ -5,15 +5,15 @@ public class TestAccount
 		Account account1 = new Account(); // Should be 1
 		Account account2 = new Account(); // Should be 2
 		
-		if (!(account1.getAccountNumber().equals(1))
+		if (!(account1.getAccountNumber().equals(1)))
 		{
-			System.err.println("FAIL: Expected Account Number - 1 " + "Actual Account Number - " + account1.getAccountNumber();
+			System.err.println("FAIL: Expected Account Number - 1 " + "Actual Account Number - " + account1.getAccountNumber());
 			System.exit(-1);
 		}
 		
-		if (!(account2.getAccountNumber().equals(2))
+		if (!(account2.getAccountNumber().equals(2)))
 		{
-			System.err.println("FAIL: Expected Account Number - 1 " + "Actual Account Number - " + account1.getAccountNumber();
+			System.err.println("FAIL: Expected Account Number - 1 " + "Actual Account Number - " + account1.getAccountNumber());
 			System.exit(-1);
 		}
 	}
