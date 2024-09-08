@@ -22,4 +22,10 @@ public class Student
 	{
 		return account.play(media);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return name + " (" + id + ", " + email + ", Account #" + account.getAccountNumber() + ")";
+	}
 }
