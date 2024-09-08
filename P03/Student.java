@@ -15,7 +15,7 @@ public class Student
 		this.name = name;
 		this.id = id;
 		this.email = email;
-		this.account = account;
+		this.account = new Account();
 	}
 	
 	public String requestMedia(Media media)
