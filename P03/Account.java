@@ -5,7 +5,7 @@ public class Account
 	
 	public Account()
 	{
-		this.accountNumber = acc
+		// this.accountNumber = acc;
 	}
 	
 	public int getAccountNumber()
@@ -15,6 +15,6 @@ public class Account
 	
 	public String play(Media media)
 	{
-		return "Playing" + 
+		return "Playing" ;
 	}
 }
