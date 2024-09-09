@@ -9,7 +9,7 @@ public class Student
 	{
 		if (!email.endsWith("@uta.edu") && !email.endsWith("@mavs.uta.edu"))
 		{
-			throw new IllegalArgumentException("Non-UTA email addres: " + email);
+			throw new IllegalArgumentException("Non-UTA email address: " + email);
 		}
 		
 		this.name = name;
