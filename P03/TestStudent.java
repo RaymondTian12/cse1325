@@ -15,10 +15,18 @@ public class TestStudent
 		try
 		{
 			Student nonStudent = new Student("Raymond Tian", 1002199181, "rxt9181@gmail.com"); // Test data
+			// If the following 2 lines are executed, then that means the exception was not thrown
+			System.err.println("FAIL: Expected Illegal Argument Exception for Non-UTA email adddress"); 
+			failureCount++;
+		}
+		catch(IllegalArgumentException e)
+		{
+			System.err.println(e.getMessage());
+			failureCount++;
 		}
 		catch(Exception e)
 		{
-			System.err.println(e.getMessage());
+			System.err.println("FAIL: Unexpected exception type");
 			failureCount++;
 		}
 		
