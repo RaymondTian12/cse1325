@@ -17,9 +17,9 @@ public class TestStudent
 		String invalidEmail = "rxt9181@invalid.edu"; 
 		try
 		{
-			Student ValidStudent = new Student("Raymond Tian", 1002199181, invalidEmail); 
+			Student invalidStudent = new Student("Raymond Tian", 1002199181, invalidEmail); 
 			// If the following 2 lines are executed, then that means the exception was not thrown
-			System.err.println("FAIL: Expected Illegal Argument Exception for Non-UTA email adddress" + invalidEmail); 
+			System.err.println("FAIL: Expected Illegal Argument Exception for Non-UTA email adddress " + invalidEmail); 
 			failureCount++;
 		}
 		catch(IllegalArgumentException e)
