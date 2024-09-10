@@ -5,7 +5,7 @@ public class TestStudent
 		int failureCount = 0;
 		
 		// Test verifying student's toString() method
-		Student student = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu"); // Test data
+		Student student = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu"); 
 		
 		if (!(student.toString()).equals("Raymond Tian (1002199181, rxt9181@mavs.uta.edu, Account #1)"))
 		{
@@ -14,19 +14,18 @@ public class TestStudent
 		}
 		
 		// Test verifying non-UTA email address
-		String invalidEmail = "rxt9181@invalid.edu";
+		String invalidEmail = "rxt9181@invalid.edu"; 
 		try
 		{
-			Student ValidStudent = new Student("Raymond Tian", 1002199181, invalidEmail); // Test data
-			//Student nonValidStudent = new Student("Raymond Tian", 1002199181, "rxt9181@nonvalid.com"); // Test data
+			Student ValidStudent = new Student("Raymond Tian", 1002199181, invalidEmail); 
 			// If the following 2 lines are executed, then that means the exception was not thrown
-			//System.err.println("FAIL: Expected Illegal Argument Exception for Non-UTA email adddress"); 
-			//failureCount++;
+			System.err.println("FAIL: Expected Illegal Argument Exception for Non-UTA email adddress" + invalidEmail); 
+			failureCount++;
 		}
 		catch(IllegalArgumentException e)
 		{
 			// Catch and Ignore the correct exception
-			if(!(e.getMessage()).equals("Non-UTA email address: " + invalidEmail))
+			if(!(e.getMessage()).equals("Non-UTA email address: " + invalidEmail)) 
 			{
 				System.err.println("FAIL: Incorrect exception message for invalid email address");
 				System.err.println("Expected: Non-UTA email address: " + invalidEmail + " | Actual - " + e.getMessage());
@@ -48,7 +47,14 @@ public class TestStudent
 			failureCount++;
 		}
 		
-		//System.out.println(failureCount);
-		System.exit(failureCount);
+		if (failureCount > 0)
+		{
+			System.err.println("FAIL: Error code " + failureCount);
+			System.exit(failureCount);
+		}
+		else
+		{
+			System.exit(0);
+		}
 	}
 }
