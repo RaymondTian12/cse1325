@@ -15,14 +15,19 @@ public class Media
 		try
 		{
 			URI uri = new URI(url); // Note: Compiler warnings - URISyntaxException and MalformedURLException must be caught
+			if (!uri.isAbsolute())
+			{
+				throw new RuntimeException(url + " is invalid");
+			}
+            
 			uri.toURL();
 			this.url = url;
 		}
-		catch(MalformedURLException e )
+		catch(MalformedURLException e)
 		{	
 			throw new RuntimeException(url + " is invalid");
 		}	
-		catch(URISyntaxException e )
+		catch(URISyntaxException e)
 		{	
 			throw new RuntimeException(url + " is invalid");
 		}
