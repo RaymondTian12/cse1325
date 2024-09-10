@@ -2,23 +2,27 @@ public class TestMedia
 {
 	public static void main(String[] args)
 	{
-		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0"); // Hardcode test data : Title, URL
+		int failureCount = 0;
 		
-		if (!(media.toString()).equals("The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0)"))
+		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0"); // Hardcode test data : Title, URL
+		String expected = "The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0)";
+		
+		if (!(media.toString()).equals(expected))
 		{
-			System.err.println("FAIL: " + "Expected String - \"The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0)\" "  + "Actual String -  " + media.toString());
-			System.exit(-1);
+			System.err.println("FAIL: " + "Expected String - \"" + expected  + " | Actual String -  " + media.toString());
+			failureCount++;
 		}
 		
 		String[] validURLs = {"https://youtube.com", "file://media/lib/garp.mp4"};
 		String[] invalidURLs = {"hello.world", "htt://badurl.com", "flub://badurl.com"};
 		
-		for (String url : validURLs)
+		// Tests valid URLs
+		// Note: Switch to invalidURLs to further test!
+		for (String url : validURLs) 
 		{
 			try
 			{
-				new Media("Default Title for validURL", url);
-				System.out.println("PASS: " + url + " is valid");
+				new Media("Default Title for URL", url);
 			}
 			catch(RuntimeException e)
 			{
@@ -27,18 +31,28 @@ public class TestMedia
 			}
 		}
 		
+		// Tests invalid URLs
+		// Note: Switch to validURLs to further test!
 		for (String url : invalidURLs)
 		{
 			try
 			{
-				new Media("Default Title for invalidURL", url);
-				System.out.print("FAIL: Missing exception for " + url);
+				new Media("Default Title for URL", url);
+				System.out.println("FAIL: Missing exception for " + url);
 			}
 			catch(RuntimeException e)
 			{
-				System.err.println("Invalid URL " + url + " successfully detected");
-				System.err.println(e);
 			}
+		}
+		
+		if (failureCount > 0)
+		{
+			System.err.println("FAIL: Error code " + failureCount);
+			System.exit(failureCount);
+		}
+		else
+		{
+			System.exit(0);
 		}
 		
 	}
