@@ -1,3 +1,12 @@
+/**
+ * Represents a media system with a title, URL, and the number of points per media
+ * Includes methods to view the number of points and the details of the media
+ *
+ * @author	Raymond Tian
+ * @version	1.0
+ * @since	1.0
+ */
+
 package product;
 
 import java.net.URL;
@@ -10,6 +19,8 @@ public class Media
 	private String title;
 	private String url;
 	private int points;
+	
+	
 	
 	public Media(String title, String url, int points)
 	{
