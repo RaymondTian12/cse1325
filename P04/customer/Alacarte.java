@@ -1,5 +1,7 @@
 package customer;
 
+import product.Media;
+
 public class Alacarte extends Account
 {
 	private int pointsRemaining;
@@ -19,7 +21,7 @@ public class Alacarte extends Account
 	{
 		if (pointsRemaining >= media.getPoints())
 		{
-			pointsRemaining -= points;
+			pointsRemaining -= media.getPoints();
 			return "Playing" + media;
 		}
 		else
