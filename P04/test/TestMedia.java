@@ -6,8 +6,9 @@ public class TestMedia
 	public static void main(String[] args)
 	{
 		int failureCount = 0;
+		int points = 10; // Added with update to class Media
 		
-		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0"); // Hardcode test data : Title, URL
+		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0", points); // Hardcode test data : Title, URL : Added points 
 		String expected = "The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0)";
 		
 		if (!(media.toString()).equals(expected))
@@ -25,7 +26,7 @@ public class TestMedia
 		{
 			try
 			{
-				new Media("Default Title for URL", url);
+				new Media("Default Title for URL", url, points);
 			}
 			catch(RuntimeException e)
 			{
@@ -40,7 +41,7 @@ public class TestMedia
 		{
 			try
 			{
-				new Media("Default Title for URL", url);
+				new Media("Default Title for URL", url, points);
 				System.out.println("FAIL: Missing exception for " + url);
 			}
 			catch(RuntimeException e)

@@ -9,6 +9,7 @@ public class TestStudent
 	public static void main(String[] args)
 	{
 		int failureCount = 0;
+		int points = 10; // Added points with changes to class Media
 		
 		// Test verifying student's toString() method
 		Student student = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu"); 
@@ -45,7 +46,7 @@ public class TestStudent
 		}
 		
 		// Test verifying requesting media
-		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0");
+		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0", points);
 		
 		if (!(student.requestMedia(media)).equals("Playing " + media.toString()))
 		{
