@@ -20,7 +20,14 @@ public class Media
 	private String url;
 	private int points;
 	
-	
+	/**
+	 * Creates a media using a title, URL, and points
+	 *
+	 * @param title 		the title of the media
+	 * @param url			the URL of the media
+	 * @param points		the number of points required for each media
+	 * @since 			1.0
+	 */
 	
 	public Media(String title, String url, int points)
 	{
@@ -48,10 +55,25 @@ public class Media
 		}
 	}
 	
+	/**
+	 * Returns the number of points required for each media 
+	 *
+	 * @return	the number of points required for each media
+	 * @since	1.0
+	 */
+	
 	public int getPoints()
 	{
 		return points;
 	}
+	
+	/**
+	 * Returns the string representation of each media with the title, URL, and points
+	 *
+	 * @return	a string representing each media
+	 * @since 	1.0
+	 *
+	 */
 	
 	@Override
 	public String toString()
