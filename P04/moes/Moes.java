@@ -19,15 +19,15 @@ public class Moes
 	
 	public String getMediaList()
 	{
-		String mediaList = "";
+		StringBuilder mediaList = new StringBuilder();
 		int index = 0;
 		for (Media media : library)
 		{
-			mediaList = index + ") " + media.toString() + ", " + media.getPoints() + ")\n";
+			mediaList.append(index).append(") ").append(media.toString()).append("\n");
 			index++;
 		} 
 		
-		return mediaList;
+		return mediaList.toString();
 	}
 	
 	public void addStudent(Student student)
@@ -37,14 +37,15 @@ public class Moes
 	
 	public String getStudentList()
 	{
-		String studentList  = "";
+		StringBuilder studentList  = new StringBuilder();
 		int index = 0;
 		for (Student student : customers)
 		{
-			studentList = index + ") " + student.toString();
+			studentList.append(index).append(") ").append(student.toString()).append("\n");
+			index++;
 		}
 		
-		return studentList;
+		return studentList.toString();
 	}
 	
 	public int getPoints(int studentIndex)
