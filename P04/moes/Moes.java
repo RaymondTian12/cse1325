@@ -1,3 +1,11 @@
+/**
+ * Provides an online entertainment system for users to manage their points and purchase media
+ *
+ * @author	Raymond Tian
+ * @version	1.0
+ * @since 	1.0
+ */
+
 package moes;
 
 import java.util.ArrayList;
@@ -12,11 +20,23 @@ public class Moes
 	private ArrayList<Media> library = new ArrayList<>();
 	private ArrayList<Student> customers = new ArrayList<>();
 	
+	/**
+	 * Adds a new media object to the library
+	 * 
+	 * @param media		the new media object to be added
+	 * @since 		1.0
+	 */
 	public void addMedia(Media media)
 	{
 		library.add(media);
 	}
 	
+	/**
+	 * Provides a formatted menu of the media options
+	 * 
+	 * @return	a string with the media opitons in a formatted output
+	 * @since 	1.0
+	 */
 	public String getMediaList()
 	{
 		StringBuilder mediaList = new StringBuilder();
@@ -30,11 +50,23 @@ public class Moes
 		return mediaList.toString();
 	}
 	
+	/**
+	 * Adds a new student to the customer list
+	 *
+	 * @param student	the new student object to be added
+	 * @since 		1.0
+	 */
 	public void addStudent(Student student)
 	{
 		customers.add(student);
 	}
 	
+	/**
+	 * Provides a formatted menu of the students 
+	 *
+	 * @return	a string with the students in a formatted output
+	 * @since 	1.0
+	 */
 	public String getStudentList()
 	{
 		StringBuilder studentList  = new StringBuilder();
@@ -47,7 +79,13 @@ public class Moes
 		
 		return studentList.toString();
 	}
-	
+	/**
+	 * Provides the number of points the student has 
+	 *
+	 * @param studentIndex		the index of the student in the list
+	 * @return			the number of points this specific student has
+	 * @since			1.0
+	 */
 	public int getPoints(int studentIndex)
 	{
 		Student student = customers.get(studentIndex); // ArrayList: get used to return element
@@ -67,6 +105,13 @@ public class Moes
 		}
 	}
 	
+	/**
+	 * 
+	 * @param studentIndex		the index of the student in the list
+	 * @param points		the number of points the student has 
+	 * @return 			a string with a message indicating the number of points the student has 
+	 * @since 			1.0
+	 */
 	public String buyPoints(int studentIndex, int points)
 	{
 		Student student = customers.get(studentIndex); 
@@ -87,6 +132,14 @@ public class Moes
 		}
 	}
 	
+	/**
+	 * Plays the selected media for a student 
+	 *
+	 * @param studentIndex		the index of the student in the list
+	 * @param mediaindex		the index of the media in the list
+	 * @return			a stringindicating the media being played with the updated point count or if the points are insufficient
+	 * @since			1.0
+	 */
 	public String playMedia(int studentIndex, int mediaIndex)
 	{
 		Student student = customers.get(studentIndex);
