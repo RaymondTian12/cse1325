@@ -1,9 +1,14 @@
 import java.util.ArrayList;
+import product.Media;
+import customer.Student;
+import customer.Account;
+import customer.Alacarte;
+import customer.Unlimited;
 
 public class Moes
 {
-	private List<Media> library = new ArrayList<>();
-	private List<Student> customers = new ArrayList<>();
+	private ArrayList<Media> library = new ArrayList<>();
+	private ArrayList<Student> customers = new ArrayList<>();
 	
 	public void addMedia(Media media)
 	{
@@ -14,9 +19,9 @@ public class Moes
 	{
 		String mediaList = "";
 		int index = 0;
-		for (Media media : libary)
+		for (Media media : library)
 		{
-			mediaList = index + ") " + media.toString() + ", " + media.getPoints() + ")\n";.
+			mediaList = index + ") " + media.toString() + ", " + media.getPoints() + ")\n";
 			index++;
 		} 
 		
@@ -65,11 +70,11 @@ public class Moes
 		if (account instanceof Alacarte)
 		{
 			((Alacarte) account).buyPoints(points);
-			return "
+			return "Student now has " + ((Alacarte) account).getPointsRemaning() + " points";
 		}
 		else if (account instanceof Unlimited)
 		{
-			return "Student ha an unlimited account and needs now additional points";
+			return "Student has an unlimited account and needs now additional points";
 		}
 		else
 		{
@@ -79,7 +84,7 @@ public class Moes
 	
 	public String playMedia(int studentIndex, int mediaIndex)
 	{
-		Student student = customers.get(sudentIndex);
+		Student student = customers.get(studentIndex);
 		Media media = library.get(mediaIndex);
 		
 		return student.requestMedia(media);
