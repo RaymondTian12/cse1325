@@ -9,7 +9,7 @@ public class Student
 	private String email;
 	private Account account;
 	
-	public Student(String name, int id, String email)
+	public Student(String name, int id, String email, boolean unlimited)
 	{
 		if (!email.endsWith("@uta.edu") && !email.endsWith("@mavs.uta.edu"))
 		{
@@ -19,13 +19,23 @@ public class Student
 		this.name = name;
 		this.id = id;
 		this.email = email;
-		this.account = new Account();
-	}
+		
+		if (unlimited)
+		{
+			this.account = new Unlimited();
+		}
+		else
+		{
+			this.account = new Alacarte();
+		}
+	}	
 	
 	public String requestMedia(Media media)
 	{
 		return account.play(media);
 	}
+	
+	
 	
 	@Override
 	public String toString()
