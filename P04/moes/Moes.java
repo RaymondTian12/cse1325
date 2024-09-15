@@ -41,6 +41,8 @@ public class Moes
 		{
 			studentList = index + ") " + student.toString();
 		}
+		
+		return studentList;
 	}
 	
 	public int getPoints(int studentIndex)
@@ -70,7 +72,7 @@ public class Moes
 		if (account instanceof Alacarte)
 		{
 			((Alacarte) account).buyPoints(points);
-			return "Student now has " + ((Alacarte) account).getPointsRemaning() + " points";
+			return "Student now has " + ((Alacarte) account).getPointsRemaining() + " points";
 		}
 		else if (account instanceof Unlimited)
 		{
