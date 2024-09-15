@@ -45,7 +45,7 @@ public class Moes
 		
 		if (account instanceof Alacarte)
 		{
-			return (Alacarte)
+			return ((Alacarte) account).getPointsRemaining(); 
 		}
 		else if (account instanceof Unlimited)
 		{
@@ -57,14 +57,32 @@ public class Moes
 		}
 	}
 	
-	public String buyPoints(int studentIndex, int mediaIndex)
+	public String buyPoints(int studentIndex, int points)
 	{
 		Student student = customers.get(studentIndex); 
 		Account account = student.getAccount();
 		
 		if (account instanceof Alacarte)
 		{
-			
+			((Alacarte) account).buyPoints(points);
+			return "
+		}
+		else if (account instanceof Unlimited)
+		{
+			return "Student ha an unlimited account and needs now additional points";
+		}
+		else
+		{
+			throw new UnsupportedOperationException("Unknown subclass of Account");
 		}
 	}
+	
+	public String playMedia(int studentIndex, int mediaIndex)
+	{
+		Student student = customers.get(sudentIndex);
+		Media media = library.get(mediaIndex);
+		
+		return student.requestMedia(media);
+	}
+	
 }
