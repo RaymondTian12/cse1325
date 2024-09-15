@@ -22,7 +22,7 @@ public class Alacarte extends Account
 		if (pointsRemaining >= media.getPoints())
 		{
 			pointsRemaining -= media.getPoints();
-			return "Playing" + media;
+			return "Playing " + media;
 		}
 		else
 		{
