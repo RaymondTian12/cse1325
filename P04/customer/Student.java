@@ -35,7 +35,10 @@ public class Student
 		return account.play(media);
 	}
 	
-	
+	public Account getAccount()
+	{
+		return account;
+	}
 	
 	@Override
 	public String toString()
