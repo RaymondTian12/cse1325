@@ -40,6 +40,31 @@ public class Moes
 	
 	public int getPoints(int studentIndex)
 	{
+		Student student = customers.get(studentIndex); // ArrayList: get used to return element
+		Account account = student.getAccount();
 		
+		if (account instanceof Alacarte)
+		{
+			return (Alacarte)
+		}
+		else if (account instanceof Unlimited)
+		{
+			return Integer.MAX_VALUE;
+		}
+		else
+		{
+			throw new UnsupportedOperationException("Unknown subclass of Account");
+		}
+	}
+	
+	public String buyPoints(int studentIndex, int mediaIndex)
+	{
+		Student student = customers.get(studentIndex); 
+		Account account = student.getAccount();
+		
+		if (account instanceof Alacarte)
+		{
+			
+		}
 	}
 }
