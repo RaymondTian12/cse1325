@@ -16,7 +16,7 @@ public class TestAlacarte
 		Alacarte account1 = new Alacarte();
 		account1.buyPoints(pointsBought);
 		
-		if (pointsBought > account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
+		if (pointsBought >= account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
 		{
 			System.err.println("FAIL: Buying points did not increase the point balance");
 			System.err.println("Initial: " + pointsBought + " | Current: " + account1.getPointsRemaining());
