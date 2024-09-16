@@ -23,8 +23,25 @@ public class TestAlacarte
 			failureCount++;
 		}
 		
-		// 
+		// Veirfy that play returns "Playing " and the media if sufficient points are available 
+		String expected = "Playing " + testMedia.toString();
+		if (!expected.equals(account1.play(testMedia)))
+		{
+			System.err.println("FAIL: Incorrect play message displayed");
+			System.err.println("Expected: " + expected);
+			System.err.println("Actual: " + account1.play(testMedia));
+			failureCount++;
+		}
 		
+		if (failureCount > 0)
+		{
+			System.err.println("FAIL Code: " + failureCount);
+			System.exit(failureCount);
+		}
+		else
+		{
+			System.exit(0);
+		}
 		
 	}
 }
