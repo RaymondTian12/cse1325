@@ -1,5 +1,5 @@
 /**
- * Represents an alacarte account type with no restrictions to playing media
+ * Represents an unlimited account type with no restrictions to playing media
  *
  * @author	Raymond Tian
  * @version	1.0
