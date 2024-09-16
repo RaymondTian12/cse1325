@@ -46,7 +46,7 @@ public class TestAlacarte
 		}
 		
 		// Verify that the play method returns the correct message if there are insufficient points
-		String expected2 = "";
+		String expected2 = "Buy more points: Requires " + testMedia.getPoints() + " points, you have " + account1.getPointsRemaining();
 		
 		if (!account1.play(testMedia).equals(expected2)) 
 		{
