@@ -9,23 +9,22 @@ public class TestAlacarte
 	{
 		int testMediaPoints = 4; // Adjust to check what happens if account has enough or not enough points
 		Media testMedia = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0", testMediaPoints);
-		int pointsBought = 5;
+		int pointsBought = 5; // Also use as the initial points balance 
 		int failureCount = 0; // Used to count the number of failures and exit the program
 		
 		// Verify that buying points inceases the points remaining by the number of points bought
 		Alacarte account1 = new Alacarte();
-		int initialPoints = account1.getPointsRemaining();
 		account1.buyPoints(pointsBought);
 		
-		if (initialPoints > account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
+		if (pointsBought > account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
 		{
 			System.err.println("FAIL: Buying points did not increase the point balance");
-			System.err.println("Initial: " + initialPoints + " | Current: " + account1.getPointsRemaining());
+			System.err.println("Initial: " + pointsBought + " | Current: " + account1.getPointsRemaining());
 			failureCount++;
 		}
 		
 		// Verify that play returns "Playing " and the media if sufficient points are available 
-		String expected1 = "Playing " + testMedia.toString();
+		String expected1 = "Playing The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + testMediaPoints + ")"; 
 		if (!expected1.equals(account1.play(testMedia)))
 		{
 			System.err.println("FAIL: Incorrect play message displayed");
@@ -37,7 +36,7 @@ public class TestAlacarte
 		// Verify that the play method reduces the points remaining by the number of points assigned if there are sufficient points
 		
 		
-		int expectedPointsRemaining = initialPoints - testMedia.getPoints();
+		int expectedPointsRemaining = pointsBought - testMedia.getPoints();
 		if (account1.getPointsRemaining() != expectedPointsRemaining)
 		{
 			System.err.println("FAIL: Purchasing media incorrectly deducts from points balance");
@@ -49,7 +48,7 @@ public class TestAlacarte
 		// Verify that the play method returns the correct message if there are insufficient points
 		String expected2 = "";
 		
-		if (!account1.play(testMedia).equals(expected2))
+		if (!account1.play(testMedia).equals(expected2)) 
 		{
 			System.err.println("FAIL: Incorrect play message displayed if there are insufficient points");
 			System.err.println("Expected: " + expected2);
