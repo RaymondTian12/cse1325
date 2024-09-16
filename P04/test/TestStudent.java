@@ -10,9 +10,10 @@ public class TestStudent
 	{
 		int failureCount = 0;
 		int points = 10; // Added points with changes to class Media
+		boolean accountStatus = true;
 		
 		// Test verifying student's toString() method
-		Student student = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu"); 
+		Student student = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", accountStatus); 
 		
 		if (!(student.toString()).equals("Raymond Tian (1002199181, rxt9181@mavs.uta.edu, Account #1)"))
 		{
@@ -24,7 +25,7 @@ public class TestStudent
 		String invalidEmail = "rxt9181@invalid.edu"; 
 		try
 		{
-			Student invalidStudent = new Student("Raymond Tian", 1002199181, invalidEmail); 
+			Student invalidStudent = new Student("Raymond Tian", 1002199181, invalidEmail, accountStatus); 
 			// If the following 2 lines are executed, then that means the exception was not thrown
 			System.err.println("FAIL: Expected Illegal Argument Exception for Non-UTA email adddress " + invalidEmail); 
 			failureCount++;
