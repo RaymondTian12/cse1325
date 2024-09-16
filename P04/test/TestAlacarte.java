@@ -8,15 +8,15 @@ public class TestAlacarte
 	public static void main(String[] args)
 	{
 		int testMediaPoints = 4; // Adjust to check what happens if account has enough or not enough points
-		Media testMedia = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0", testMediaPoints);
 		int pointsBought = 5; // Also use as the initial points balance 
+		Alacarte account1 = new Alacarte();
+		account1.buyPoints(pointsBought);
+		Media testMedia = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0", testMediaPoints);
 		int failureCount = 0; // Used to count the number of failures and exit the program
 		
 		// Verify that buying points inceases the points remaining by the number of points bought
-		Alacarte account1 = new Alacarte();
-		account1.buyPoints(pointsBought);
-		
-		if (pointsBought >= account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
+		// When testing with bad data, change account1.getPointsRemaining() in if condition and within if block
+		if (pointsBought > account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
 		{
 			System.err.println("FAIL: Buying points did not increase the point balance");
 			System.err.println("Initial: " + pointsBought + " | Current: " + account1.getPointsRemaining());
