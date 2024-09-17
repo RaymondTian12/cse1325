@@ -15,7 +15,7 @@ public class TestAlacarte
 		int failureCount = 0; // Used to count the number of failures and exit the program
 		
 		// Verify that buying points inceases the points remaining by the number of points bought
-		// When testing with bad data, change account1.getPointsRemaining() in if condition and within if block
+		// When testing with bad data, change account1.getPointsRemaining() in if condition and within if block to an invalid number
 		if (pointsBought > account1.getPointsRemaining()) // if initial is higher than current, then points were not bought
 		{
 			System.err.println("FAIL: Buying points did not increase the point balance");
@@ -23,13 +23,15 @@ public class TestAlacarte
 			failureCount++;
 		}
 		
-		// Verify that play returns "Playing " and the media if sufficient points are available 
-		String expected1 = "Playing The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + testMediaPoints + ")"; 
-		if (!expected1.equals(account1.play(testMedia)))
+		// Verify that play returns "Playing " and the media if sufficient points are available
+		// When testing, change expected1 String which should result in an error) 
+		String expected1 = "Playing  The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + testMediaPoints + ")"; 
+		String actual1 = account1.play(testMedia);
+		if (!expected1.equals(actual1))
 		{
 			System.err.println("FAIL: Incorrect play message displayed");
 			System.err.println("Expected: " + expected1);
-			System.err.println("Actual: " + account1.play(testMedia));
+			System.err.println("Actual: " + actual1);
 			failureCount++;
 		}
 		
