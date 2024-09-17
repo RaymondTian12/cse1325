@@ -62,6 +62,8 @@ public class TestStudent
 		
 		// Verify that the requestMedia method returns the same result as the Account's play method for an Unlimited account
 		// When testing, can change unlimitedAccountPlayResult with a string different than what's expected
+		// Expected String should be the following for this example: 
+		// Playing The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: 10)
 		boolean unlimitedAccountStatus = true; // Set to true for unlimited
 		
 		Unlimited unlimitedAccount = new Unlimited();
@@ -80,10 +82,13 @@ public class TestStudent
 		
 		// Verify the same but for an Alacarte account with sufficient points
 		// When testing, can change alacarteNoPointsStudentPlayResult with a string different than what's expected
+		// Expected String should be the following for this example: 
+		// Playing The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: 10)
+
 		boolean alacarteAccountStatus = false; // Set to false for alacarte
 		
 		Alacarte accountNoPoints = new Alacarte();
-		int alacarteNoPoints = 5; // Pick anything less than points at the top for "Little Shop of Horrors"
+		int alacarteNoPoints = 15; // Pick anything more than points at the top for "Little Shop of Horrors"
 		accountNoPoints.buyPoints(alacarteNoPoints);
 		String alacarteNoPointsPlayResult = accountNoPoints.play(media);
 		
@@ -96,14 +101,39 @@ public class TestStudent
 		moes.buyPoints(studentIndex1, alacarteNoPoints);
 		String alacarteNoPointsStudentPlayResult = moes.playMedia(studentIndex1, mediaIndex);
 		
+		
 		if (!alacarteNoPointsPlayResult.equals(alacarteNoPointsStudentPlayResult))
 		{
 			System.err.println("FAIL: requestMedia does not match play for an alacarte account with sufficient points");
 			System.err.println("Expected: " + alacarteNoPointsPlayResult);
 			System.err.println("Actual: " + alacarteNoPointsStudentPlayResult);
+			failureCount++;
 		}
 		
-		// 
+		// Verify the same but for an Alacarte account with insufficient points
+		// When testing, can change alacarteWithPointsPlayResult with a string different than what's expected
+		// Expected String should be the following for this example: 
+		// Buy more points: Requires 10 points, you have 5
+		Alacarte accountWithPoints = new Alacarte();
+		int alacarteWithPoints = 5; // Pick anything less than points at the top for "Little Shop of Horrors"
+		accountWithPoints.buyPoints(alacarteWithPoints);
+		String alacarteWithPointsPlayResult = accountWithPoints.play(media);
+		
+		Student alacarteWithPointsStudent = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", alacarteAccountStatus);
+		moes.addStudent(alacarteWithPointsStudent);
+		int studentIndex2 = 1; // Keep the media index the same as it's the same media
+		moes.buyPoints(studentIndex2, alacarteWithPoints);
+		String alacarteWithPointsStudentPlayResult = moes.playMedia(studentIndex2, mediaIndex);
+		
+		if (!alacarteWithPointsPlayResult.equals(alacarteWithPointsStudentPlayResult))
+		{
+			System.err.println("FAIL: requestMedia does not match play for an alacarte account with insufficient points");
+			System.err.println("Expected: " + alacarteWithPointsPlayResult);
+			System.err.println("Actual: " + alacarteWithPointsStudentPlayResult);
+			failureCount++;
+		}
+		
+		//
 		if (failureCount > 0)
 		{
 			System.err.println("FAIL: Error code " + failureCount);
