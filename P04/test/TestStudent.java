@@ -78,7 +78,8 @@ public class TestStudent
 			failureCount++;
 		}
 		
-		//  Verify the same but for an Alacarte account with sufficient points
+		// Verify the same but for an Alacarte account with sufficient points
+		// When testing, can change alacarteNoPointsStudentPlayResult with a string different than what's expected
 		boolean alacarteAccountStatus = false; // Set to false for alacarte
 		
 		Alacarte accountNoPoints = new Alacarte();
