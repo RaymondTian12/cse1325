@@ -2,8 +2,10 @@ package test;
 
 import customer.Account;
 import customer.Unlimited;
+import customer.Alacarte;
 import customer.Student;
 import product.Media;
+import moes.Moes;
 
 public class TestStudent
 {
@@ -60,11 +62,14 @@ public class TestStudent
 		
 		// Verify that the requestMedia method returns the same result as the Account's play method for an Unlimited account
 		// When testing, can change unlimitedAccountPlayResult with a string different than what's expected
-		Unlimited unlimitedAccount = new Unlimited();
 		boolean unlimitedAccountStatus = true; // Set to true for unlimited
+		
+		Unlimited unlimitedAccount = new Unlimited();
 		String unlimitedAccountPlayResult = unlimitedAccount.play(media);
+		
 		Student unlimitedStudent = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", unlimitedAccountStatus);
-		String unlimitedStudentPlayResult = //unlimitedStudent.requestMedia(media);
+		String unlimitedStudentPlayResult = unlimitedStudent.requestMedia(media);
+		
 		if (!unlimitedAccountPlayResult.equals(unlimitedStudentPlayResult))
 		{
 			System.err.println("FAIL: requestMedia does not match play for an unlimited account");
@@ -74,12 +79,30 @@ public class TestStudent
 		}
 		
 		//  Verify the same but for an Alacarte account with sufficient points
-		boolean alacarteAccountStatus = false; // Set to false for unlimited
-		Alacarte accountNoPoints = new Alacarte();
-		int alacarteNoPoints = 5; // Pick anything less than points at the top 
-		accountNoPoints.buyPoints(alacarteNoPoints);
-		Student alacarteNoPointsStudent = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", alacarteAccountStatus);
+		boolean alacarteAccountStatus = false; // Set to false for alacarte
 		
+		Alacarte accountNoPoints = new Alacarte();
+		int alacarteNoPoints = 5; // Pick anything less than points at the top for "Little Shop of Horrors"
+		accountNoPoints.buyPoints(alacarteNoPoints);
+		String alacarteNoPointsPlayResult = accountNoPoints.play(media);
+		
+		Student alacarteNoPointsStudent = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", alacarteAccountStatus);
+		Moes moes = new Moes();
+		moes.addStudent(alacarteNoPointsStudent);
+		moes.addMedia(media);
+		int studentIndex1 = 0;
+		int mediaIndex = 0;
+		moes.buyPoints(studentIndex1, alacarteNoPoints);
+		String alacarteNoPointsStudentPlayResult = moes.playMedia(studentIndex1, mediaIndex);
+		
+		if (!alacarteNoPointsPlayResult.equals(alacarteNoPointsStudentPlayResult))
+		{
+			System.err.println("FAIL: requestMedia does not match play for an alacarte account with sufficient points");
+			System.err.println("Expected: " + alacarteNoPointsPlayResult);
+			System.err.println("Actual: " + alacarteNoPointsStudentPlayResult);
+		}
+		
+		// 
 		if (failureCount > 0)
 		{
 			System.err.println("FAIL: Error code " + failureCount);
