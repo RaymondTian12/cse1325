@@ -133,7 +133,7 @@ public class TestStudent
 			failureCount++;
 		}
 		
-		//
+		// Exit program with failureCount or 0 depending on which data is used
 		if (failureCount > 0)
 		{
 			System.err.println("FAIL: Error code " + failureCount);
