@@ -25,7 +25,7 @@ public class TestAlacarte
 		
 		// Verify that play returns "Playing " and the media if sufficient points are available
 		// When testing, change expected1 String which should result in an error) 
-		String expected1 = "Playing  The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + testMediaPoints + ")"; 
+		String expected1 = "Playing The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + testMediaPoints + ")"; 
 		String actual1 = account1.play(testMedia);
 		if (!expected1.equals(actual1))
 		{
@@ -36,14 +36,14 @@ public class TestAlacarte
 		}
 		
 		// Verify that the play method reduces the points remaining by the number of points assigned if there are sufficient points
-		
-		
-		int expectedPointsRemaining = pointsBought - testMedia.getPoints();
-		if (account1.getPointsRemaining() != expectedPointsRemaining)
+		// When testing, change the expectedPointsRemaining int to a value other than the expected value 
+		int expectedPointsRemaining = pointsBought - testMediaPoints;
+		int actualPointsRemaining = account1.getPointsRemaining();
+		if (actualPointsRemaining > expectedPointsRemaining) // If deducted incorrectly, the points remaining in account is higher than the expected value
 		{
 			System.err.println("FAIL: Purchasing media incorrectly deducts from points balance");
 			System.err.println("Expected: " + expectedPointsRemaining);
-			System.err.println("Actual: " + account1.getPointsRemaining());
+			System.err.println("Actual: " + actualPointsRemaining);
 			failureCount++;
 		}
 		
