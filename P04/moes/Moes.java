@@ -124,7 +124,7 @@ public class Moes
 		}
 		else if (account instanceof Unlimited)
 		{
-			return "Student has an unlimited account and needs now additional points";
+			return "Student has an unlimited account and needs no additional points";
 		}
 		else
 		{
