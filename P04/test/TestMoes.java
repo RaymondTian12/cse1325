@@ -70,9 +70,43 @@ public class TestMoes
 		
 		// Verify that buying points with the buyPoints method for the student with the Unlimited account wresults in the message the student 
 		// followed by " has unlimited account and needs no points!"
+		// When testing, modify the expected4 string
 		String expected4 = "Student has an unlimited account and needs no additional points";
 		String actual4 = moes.buyPoints(0, buyingPoints); // Test on student 1 (unlimited) - okay to reuse buyingPoints
 		
+		if (!actual4.equals(expected4))
+		{
+			System.err.println("FAIL: Buying points message does not match for unlimited student.");
+			System.err.println("Expected: " + expected4);
+			System.err.println("Actual: " + actual4);
+			failureCount++;
+		}
+		
+		// Verify that getPoints method for the student with the Alacarte account results in the correct number of points returned
+		// When testing, modify the expectedAlacartePoints int
+		int expectedAlacartePoints = buyingPoints; // buyingPoints was used previously
+		int actualAlacartePoints = moes.getPoints(1); // Alacarte student is index 1
+		
+		if (expectedAlacartePoints != actualAlacartePoints)
+		{
+			System.err.println("FAIL: getPoints() does not provide correct number of points for alacarte account.");
+			System.err.println("Expected: " + expectedAlacartePoints + " points");
+			System.err.println("Actual: " + actualAlacartePoints + " points");
+			failureCount++;
+		}
+		
+		// Verify that buying points with the buyPoints method for the student with the Unlimited account results in Integer.MAX_VALUE
+		// When testing, modify the expectedUnlimitedPoints int 
+		int expectedUnlimitedPoints = Integer.MAX_VALUE;
+		int actualUnlimitedPoints = moes.getPoints(0); // Unlimited student is index 0
+		
+		if (expectedUnlimitedPoints != actualUnlimitedPoints)
+		{
+			System.err.println("FAIL: getPoints() does not provide correct number of points for unlimited account.");
+			System.err.println("Expected: " + expectedUnlimitedPoints + " points");
+			System.err.println("Actual: " + actualUnlimitedPoints + " points");
+			failureCount++;
+		}
 		
 		// Exit program with failureCount or 0 depending on which data is used
 		if (failureCount > 0)
