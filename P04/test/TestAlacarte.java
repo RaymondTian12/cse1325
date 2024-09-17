@@ -24,7 +24,7 @@ public class TestAlacarte
 		}
 		
 		// Verify that play returns "Playing " and the media if sufficient points are available
-		// When testing, change expected1 String which should result in an error) 
+		// When testing, change expected1 String which should result in an error
 		String expected1 = "Playing The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + testMediaPoints + ")"; 
 		String actual1 = account1.play(testMedia);
 		if (!expected1.equals(actual1))
@@ -48,8 +48,8 @@ public class TestAlacarte
 		}
 		
 		// Verify that the play method returns the correct message if there are insufficient points
+		// When testing, change expected2 String which should result in an error
 		String expected2 = "Buy more points: Requires " + testMedia.getPoints() + " points, you have " + account1.getPointsRemaining();
-		
 		if (!account1.play(testMedia).equals(expected2)) 
 		{
 			System.err.println("FAIL: Incorrect play message displayed if there are insufficient points");
