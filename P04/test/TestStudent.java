@@ -1,6 +1,7 @@
 package test;
 
 import customer.Account;
+import customer.Unlimited;
 import customer.Student;
 import product.Media;
 
@@ -54,6 +55,30 @@ public class TestStudent
 			System.err.println("FAIL: Expected \"" + media.toString() + "\" not \"" + student.requestMedia(media) + "\"");
 			failureCount++;
 		}
+		
+		// Additional Tests for P04
+		
+		// Verify that the requestMedia method returns the same result as the Account's play method for an Unlimited account
+		// When testing, can change unlimitedAccountPlayResult with a string different than what's expected
+		Unlimited unlimitedAccount = new Unlimited();
+		boolean unlimitedAccountStatus = true; // Set to true for unlimited
+		String unlimitedAccountPlayResult = unlimitedAccount.play(media);
+		Student unlimitedStudent = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", unlimitedAccountStatus);
+		String unlimitedStudentPlayResult = //unlimitedStudent.requestMedia(media);
+		if (!unlimitedAccountPlayResult.equals(unlimitedStudentPlayResult))
+		{
+			System.err.println("FAIL: requestMedia does not match play for an unlimited account");
+			System.err.println("Expected: " + unlimitedAccountPlayResult);
+			System.err.println("Actual: " + unlimitedStudentPlayResult); 
+			failureCount++;
+		}
+		
+		//  Verify the same but for an Alacarte account with sufficient points
+		boolean alacarteAccountStatus = false; // Set to false for unlimited
+		Alacarte accountNoPoints = new Alacarte();
+		int alacarteNoPoints = 5; // Pick anything less than points at the top 
+		accountNoPoints.buyPoints(alacarteNoPoints);
+		Student alacarteNoPointsStudent = new Student("Raymond Tian", 1002199181, "rxt9181@mavs.uta.edu", alacarteAccountStatus);
 		
 		if (failureCount > 0)
 		{
