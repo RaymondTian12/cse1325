@@ -1,5 +1,8 @@
 package test;
+
 import customer.Account;
+import customer.Alacarte;
+import customer.Unlimited;
 
 public class TestAccount
 {
@@ -7,10 +10,11 @@ public class TestAccount
 	{
 		int failureCount = 0;
 		
-		Account account1 = new Account(); // Should be 1
-		Account account2 = new Account(); // Should be 2
-		int account1Expected = 1;
-		int account2Expected = 2;
+		// Test subclasses now that Account is abstract
+		Alacarte account1 = new Alacarte(); // Should be 1
+		Unlimited account2 = new Unlimited(); // Should be 2
+		int account1Expected = 2;
+		int account2Expected = 3;
 		
 		if (account1.getAccountNumber() != account1Expected)
 		{
@@ -33,6 +37,5 @@ public class TestAccount
 		{
 			System.exit(0);
 		}
-		
 	}
 }
