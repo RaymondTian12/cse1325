@@ -29,6 +29,7 @@ public class Alacarte extends Account
 	 * Returns the number of points remaining in the account 
 	 * 
 	 * @return	the number of points remaining in the account
+	 * @since	1.0
 	 */
 	public int getPointsRemaining()
 	{
