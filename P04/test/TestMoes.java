@@ -68,6 +68,10 @@ public class TestMoes
 			failureCount++;
 		}
 		
+		// Verify that buying points with the buyPoints method for the student with the Unlimited account wresults in the message the student 
+		// followed by " has unlimited account and needs no points!"
+		String expected4 = "Student has an unlimited account and needs no additional points";
+		String actual4 = moes.buyPoints(0, buyingPoints); // Test on student 1 (unlimited) - okay to reuse buyingPoints
 		
 		
 		// Exit program with failureCount or 0 depending on which data is used
