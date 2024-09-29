@@ -14,12 +14,12 @@ public class MenuItem implements Runnable
 	@Override
 	public String toString()
 	{
-	
+		return menuText.toString();
 	}
 	
 	@Override
 	public void run()
 	{
-	
+		menuResponse.run();
 	}
 }
