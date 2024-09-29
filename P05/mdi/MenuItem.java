@@ -7,6 +7,19 @@ public class MenuItem implements Runnable
 	
 	public MenuItem(Object menuText, Runnable menuResponse)
 	{
-		
+		this.menuText = menuText;
+		this.menuResponse = menuResponse;
+	}
+	
+	@Override
+	public String toString()
+	{
+	
+	}
+	
+	@Override
+	public void run()
+	{
+	
 	}
 }
