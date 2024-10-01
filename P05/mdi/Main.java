@@ -89,7 +89,54 @@ public class Main
 	
 	private void listMedia()
 	{
+		System.out.println(moes.getMediaList());
+	}
+	
+	private void playMedia()
+	{
+		Scanner in = new Scanner(System.in);
 		
+		System.out.println("Enter Student Index: ");
+    		int studentIndex = in.nextInt();
+    
+   		System.out.println("Enter Media Index: ");
+   		int mediaIndex = in.nextInt();
+    
+		System.out.println(moes.playMedia(studentIndex, mediaIndex));
+
+	}
+	
+	private void listAvailablePoints()
+	{
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter Student Index: ");
+    		int studentIndex = in.nextInt();
+    		
+    		System.out.println("Available Points: " + moes.getPoints(studentIndex));
+
+	}
+	
+	private void buyPoints()
+	{
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter Student Index: ");
+    		int studentIndex = in.nextInt();
+    		
+    		System.out.println("Current Points: " + moes.getPoints(studentIndex) + "\n");
+    		System.out.println("How many additional points would you like to buy? ");
+    		int boughtPoints = in.nextInt();
+    		
+    		if (boughtPoints < 0)
+    		{
+    			System.err.println("You can not purchase negative points!");
+    		}
+    		else
+    		{
+    			moes.buyPoints(studentIndex, boughtPoints);
+    		}
+
 	}
 	
 	public static void main(String[] args)
