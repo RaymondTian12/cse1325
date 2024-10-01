@@ -2,6 +2,8 @@ package mdi;
 
 import java.util.Scanner;
 import moes.Moes;
+import customer.Student;
+import product.Media;
 
 public class Main
 {
@@ -77,7 +79,7 @@ public class Main
 		
 		try 
 		{
-			Media media = new Media(mediaTitle, mediaUrl, mediaPoints);
+			Media media = new Media(mediaTitle, mediaURL, mediaPoints);
 		} 
 		catch (IllegalArgumentException e) 
 		{
@@ -151,6 +153,7 @@ public class Main
        			int choice = scanner.nextInt(); // Get user choice
         		scanner.nextLine(); // Consume newline
        			menu.run(choice); // Execute the selected menu item
+       		}
 	}
 	
 	private void endApp()
