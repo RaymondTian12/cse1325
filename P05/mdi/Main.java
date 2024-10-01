@@ -15,22 +15,12 @@ public class Main
 	
 	private void addStudent()
 	{
-		Scanner in = new Scanner(System.in);
 		
 		// Note: Student object - name is a string, id is int, email is string, and unlimited is boolean
-		System.out.print("Enter Student Name: ");
-		String studentName = in.nextLine();
-		
-		System.out.print("Enter Student ID: ");
-		int studentID = in.nextInt();
-		in.nextLine(); // Consume the newline
-		
-		System.out.print("Enter Student Email: ");
-		String studentEmail = in.nextLine();
-		
-		System.out.print("Enter 1 for Alacarte or 2 for Unlimited: ");
-		int studentAccount = in.nextInt();
-		in.nextLine(); // Consume the newline
+		String studentName = Menu.getString("Enter Student Name: ");
+		int studentID = Menu.getInt("Enter Student ID: ");
+		String studentEmail = Menu.getString("Enter Student Email: ");
+		int studentAccount = Menu.getInt("Enter 1 for Alacarte or 2 for Unlimited: ");
 		
 		boolean unlimitedAccount = false;
 		if (studentAccount == 1)
@@ -67,17 +57,9 @@ public class Main
 	
 	private void addMedia()
 	{
-		Scanner in = new Scanner(System.in);
-		
-		System.out.print("Enter Media Title: ");
-		String mediaTitle = in.nextLine();
-		
-		System.out.print("Enter Media URL: ");
-		String mediaURL = in.nextLine();
-		
-		System.out.print("Enter Media Points Required: ");
-		int mediaPoints = in.nextInt();
-		in.nextLine(); // Consume the newline
+		String mediaTitle = Menu.getString("Enter Media Title: ");
+		String mediaURL = Menu.getString("Enter Media URL: ");
+		int mediaPoints = Menu.getInt("Enter Media Points Required: ");
 		
 		Media media = null;
 		
@@ -100,13 +82,8 @@ public class Main
 	
 	private void playMedia()
 	{
-		Scanner in = new Scanner(System.in);
-		
-		System.out.print("Enter Student Index: ");
-    		int studentIndex = in.nextInt();
-    
-   		System.out.print("Enter Media Index: ");
-   		int mediaIndex = in.nextInt();
+    		int studentIndex = Menu.getInt("Enter Student Index: ");
+   		int mediaIndex = Menu.getInt("Enter Media Index: ");
     
 		System.out.println(moes.playMedia(studentIndex, mediaIndex));
 
@@ -114,10 +91,7 @@ public class Main
 	
 	private void listAvailablePoints()
 	{
-		Scanner in = new Scanner(System.in);
-		
-		System.out.print("Enter Student Index: ");
-    		int studentIndex = in.nextInt();
+		int studentIndex = Menu.getInt("Enter Student Index: ");
     		
     		System.out.println("Available Points: " + moes.getPoints(studentIndex));
 
@@ -125,14 +99,10 @@ public class Main
 	
 	private void buyPoints()
 	{
-		Scanner in = new Scanner(System.in);
-		
-		System.out.print("Enter Student Index: ");
-    		int studentIndex = in.nextInt();
+		int studentIndex = Menu.getInt("Enter Student Index: ");
     		
     		System.out.println("Current Points: " + moes.getPoints(studentIndex) + "\n");
-    		System.out.print("How many additional points would you like to buy? ");
-    		int boughtPoints = in.nextInt();
+    		int boughtPoints = Menu.getInt("How many additional points would you like to buy? ");
     		
     		if (boughtPoints < 0)
     		{
@@ -147,15 +117,11 @@ public class Main
 	
 	private void mdi()
 	{
-		Scanner scanner = new Scanner(System.in);
-		
 		while (running) 
 		{ 
        			System.out.println(menu); 
-        		System.out.print("Select an option: ");
-        
-       			int choice = scanner.nextInt(); // Get user choice
-        		scanner.nextLine(); // Consume newline
+
+       			int choice = Menu.getInt("Select an option: "); // Get user choice
        			menu.run(choice); // Execute the selected menu item
        		}
 	}
