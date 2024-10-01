@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Menu
 {
-	private ArrayList<MenuItems> items = new ArrayList<>();
+	private ArrayList<MenuItem> items = new ArrayList<>();
 	
 	public void addMenuItem(MenuItem item)
 	{
@@ -25,6 +25,6 @@ public class Menu
 	
 	public void run(int itemNumber)
 	{
-		items.get(index).run();
+		items.get(itemNumber).run();
 	}
 }
