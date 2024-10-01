@@ -139,8 +139,35 @@ public class Main
 
 	}
 	
+	private void mdi()
+	{
+		while(running)
+	}
+	
+	private void endApp()
+	{
+		running = false;
+	}
+	
+	public Main()
+	{
+		this.moes = new Moes();
+		this.output = "";
+		this.menu = new Menu();
+		this.running = true;
+		
+		menu.addMenuItem(new MenuItem("Add Student",		() -> addStudent()));
+		menu.addMenuItem(new MenuItem("List Students", 		() -> listStudents()));
+		menu.addMenuItem(new MenuItem("Add Media", 		() -> addMedia()));
+		menu.addMenuItem(new MenuItem("Play Media", 		() -> playMedia()));
+		menu.addMenuItem(new MenuItem("List Media", 		() -> listMedia()));
+		menu.addMenuItem(new MenuItem("List Available Points", 	() -> listAvailablePoints()));
+		menu.addMenuItem(new MenuItem("Buy Points", 		() -> buyPoints()));
+		menu.addMenuItem(new MenuItem("Exit", 			() -> endApp()));
+	}
+	
 	public static void main(String[] args)
 	{
-	
+		
 	}
 }
