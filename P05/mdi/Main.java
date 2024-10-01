@@ -11,23 +11,24 @@ public class Main
 	private String output;
 	private Menu menu;
 	private boolean running;
+	private String banner;
 	
 	private void addStudent()
 	{
 		Scanner in = new Scanner(System.in);
 		
 		// Note: Student object - name is a string, id is int, email is string, and unlimited is boolean
-		System.out.println("Enter Student Name: ");
+		System.out.print("Enter Student Name: ");
 		String studentName = in.nextLine();
 		
-		System.out.println("Enter Student ID: ");
+		System.out.print("Enter Student ID: ");
 		int studentID = in.nextInt();
 		in.nextLine(); // Consume the newline
 		
-		System.out.println("Enter Student Email: ");
+		System.out.print("Enter Student Email: ");
 		String studentEmail = in.nextLine();
 		
-		System.out.println("Enter 1 for Alacarte or 2 for Unlimited: ");
+		System.out.print("Enter 1 for Alacarte or 2 for Unlimited: ");
 		int studentAccount = in.nextInt();
 		in.nextLine(); // Consume the newline
 		
@@ -43,7 +44,6 @@ public class Main
 		else
 		{
 			System.err.println("Not a valid account type!");
-			System.exit(-1);
 		}
 		
 		Student student = null;
@@ -69,13 +69,13 @@ public class Main
 	{
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println("Enter Media Title: ");
+		System.out.print("Enter Media Title: ");
 		String mediaTitle = in.nextLine();
 		
-		System.out.println("Enter Media URL: ");
+		System.out.print("Enter Media URL: ");
 		String mediaURL = in.nextLine();
 		
-		System.out.println("Enter Media Points Required: ");
+		System.out.print("Enter Media Points Required: ");
 		int mediaPoints = in.nextInt();
 		in.nextLine(); // Consume the newline
 		
@@ -102,10 +102,10 @@ public class Main
 	{
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println("Enter Student Index: ");
+		System.out.print("Enter Student Index: ");
     		int studentIndex = in.nextInt();
     
-   		System.out.println("Enter Media Index: ");
+   		System.out.print("Enter Media Index: ");
    		int mediaIndex = in.nextInt();
     
 		System.out.println(moes.playMedia(studentIndex, mediaIndex));
@@ -116,7 +116,7 @@ public class Main
 	{
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println("Enter Student Index: ");
+		System.out.print("Enter Student Index: ");
     		int studentIndex = in.nextInt();
     		
     		System.out.println("Available Points: " + moes.getPoints(studentIndex));
@@ -127,11 +127,11 @@ public class Main
 	{
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println("Enter Student Index: ");
+		System.out.print("Enter Student Index: ");
     		int studentIndex = in.nextInt();
     		
     		System.out.println("Current Points: " + moes.getPoints(studentIndex) + "\n");
-    		System.out.println("How many additional points would you like to buy? ");
+    		System.out.print("How many additional points would you like to buy? ");
     		int boughtPoints = in.nextInt();
     		
     		if (boughtPoints < 0)
@@ -152,7 +152,7 @@ public class Main
 		while (running) 
 		{ 
        			System.out.println(menu); 
-        		System.out.println("Select an option: ");
+        		System.out.print("Select an option: ");
         
        			int choice = scanner.nextInt(); // Get user choice
         		scanner.nextLine(); // Consume newline
@@ -165,12 +165,34 @@ public class Main
 		running = false;
 	}
 	
+	public void displayBanner() 
+	{
+        	System.out.println(banner);
+        }
+	
 	public Main()
 	{
 		this.moes = new Moes();
 		this.output = "";
 		this.menu = new Menu();
 		this.running = true;
+		this.banner = 	"        _.-._\n" +
+				"     .-'     '-.\n" +
+				"   .'           '.\n" +
+				"  /               \\\n" +
+				" |   0       0    |		Version: 1.0 (2024)\n" +
+				" |                |		Author: Raymond Tian\n" +
+				"  \\              /\n" +
+				"   '.  \\---/     .'		We got every media you need!\n" +
+				"     '-._____.-'\n" +
+				"         | |\n" +
+				"         | |\n" +
+				"         | |\n" +
+				"         | |\n" +
+				"         | |\n" +
+				"Welcome to the Mavs Online Entertainment System (MOES)!\n\n";
+		
+		displayBanner();
 		
 		menu.addMenuItem(new MenuItem("Add Student",		() -> addStudent()));
 		menu.addMenuItem(new MenuItem("List Students", 		() -> listStudents()));
