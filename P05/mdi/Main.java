@@ -141,7 +141,16 @@ public class Main
 	
 	private void mdi()
 	{
-		while(running)
+		Scanner scanner = new Scanner(System.in);
+		
+		while (running) 
+		{ 
+       			System.out.println(menu); 
+        		System.out.println("Select an option: ");
+        
+       			int choice = scanner.nextInt(); // Get user choice
+        		scanner.nextLine(); // Consume newline
+       			menu.run(choice); // Execute the selected menu item
 	}
 	
 	private void endApp()
@@ -168,6 +177,7 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		
+		Main mainApp = new Main(); 
+       		mainApp.mdi();
 	}
 }
