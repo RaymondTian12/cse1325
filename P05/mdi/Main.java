@@ -46,9 +46,11 @@ public class Main
 			System.exit(-1);
 		}
 		
+		Student student = null;
+		
 		try
 		{
-			Student student = new Student(studentName, studentID, studentEmail, unlimitedAccount);
+			student = new Student(studentName, studentID, studentEmail, unlimitedAccount);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -77,9 +79,11 @@ public class Main
 		int mediaPoints = in.nextInt();
 		in.nextLine(); // Consume the newline
 		
+		Media media = null;
+		
 		try 
 		{
-			Media media = new Media(mediaTitle, mediaURL, mediaPoints);
+			media = new Media(mediaTitle, mediaURL, mediaPoints);
 		} 
 		catch (IllegalArgumentException e) 
 		{
