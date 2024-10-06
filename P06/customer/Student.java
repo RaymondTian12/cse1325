@@ -53,6 +53,28 @@ public class Student
 		}
 	}	
 	
+	public Student(BufferedReader br) throws IOException
+	{
+		this.name = br.readLine();
+		this.id = Integer.parseInt(br.readLine());
+		this.email = br.readLine();
+		
+		String accountType = br.readLine();
+		
+		if (accountType.equals("customer.Alacarte")) 
+		{
+            		this.account = new Alacarte(br); 
+       		} 
+       		else if (accountType.equals("customer.Unlimited")) 
+       		{
+            		this.account = new Unlimited(br); 
+        	} 
+        	else 
+        	{
+            		throw new IllegalArgumentException("Unknown account type: " + accountType);
+       		}
+	}
+	
 	public void save(BufferedWriter bw) throws IOException
 	{
 		bw.write(name + '\n');
