@@ -9,7 +9,7 @@ import product.Media;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-
+import java.io.FileWriter;
 
 public class Main
 {
@@ -30,7 +30,23 @@ public class Main
 	
 	public void save()
 	{
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))
+		{
+			bw.write(magicCookie + '\n');
+			bw.write(fileVersion + '\n');
+			moes.save(bw);
+		}
+		catch(IOException e)
+		{
+			System.err.println("Error saving to file: " + e.getMessage());
+			return;
+		}
+	}
 	
+	public void saveAs()
+	{
+		System.out.println("Current filename: " + filename);
+		String newFileName = Menu.getString("Enter a new filename: ");
 	}
 	
 	private void open()
