@@ -47,11 +47,25 @@ public class Main
 	{
 		System.out.println("Current filename: " + filename);
 		String newFileName = Menu.getString("Enter a new filename: ");
+		
+		if (newFileName.isEmpty()) // If user doesn't enter anything, return
+		{
+			return;
+		}
+		
+		if (!newFileName.endsWith(extension)) // Add file extension if the user doesn't add it 
+		{
+			newFileName += extension;
+		}
+		
+		filename = newFileName;
+		save();
 	}
 	
 	private void open()
 	{
-		
+		System.out.println("Curent filename: " + filename);
+		String newFileName = Menu.getString("Enter a new file name: ");
 	}
 	
 	private void addStudent()
