@@ -18,6 +18,15 @@ import java.io.IOException;
 
 public class Unlimited extends Account
 {
+	public Unlimited()
+	{
+		super();
+	}
+	
+	public Unlimited(BufferedReader br) throws IOException
+	{
+		super(br);
+	}
 	
 	public void save(BufferedWriter bw) throws IOException
 	{
