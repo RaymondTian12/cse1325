@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.FileReader;
 
 public class Main
 {
@@ -30,13 +31,13 @@ public class Main
 	
 	public void save()
 	{
-		try(BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))
 		{
 			bw.write(magicCookie + '\n');
 			bw.write(fileVersion + '\n');
 			moes.save(bw);
 		}
-		catch(IOException e)
+		catch (IOException e)
 		{
 			System.err.println("Error saving to file: " + e.getMessage());
 			return;
@@ -66,6 +67,44 @@ public class Main
 	{
 		System.out.println("Curent filename: " + filename);
 		String newFileName = Menu.getString("Enter a new file name: ");
+		
+		if (newFileName.isEmpty())
+		{
+			return;
+		}
+		
+		if (!newFileName.endsWith(extension))
+		{
+			newFileName += extension;
+		}
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(newFileName)))
+		{
+			String testMagicCookie = br.readLine();
+			String testFileVersion = br.readLine();
+			
+			if (!(testMagicCookie.equals(magicCookie) || !(testFileVersion.equals(fileVersion))))
+			{
+				throw new IOException("Invalid file was opened");
+			}
+			
+			try
+			{
+				Moes moes2 = new Moes(br); 
+				this.moes = moes2;
+				this.filename = newFileName;
+			}
+			catch (IOException e)
+			{
+				System.err.println("Failed to resconstruct new Moes object: " + e.getMessage());	
+			}
+			
+		}
+		catch (IOException e)
+		{
+			System.err.println("Error opening file: " + e.getMessage());
+			return;
+		}
 	}
 	
 	private void addStudent()
