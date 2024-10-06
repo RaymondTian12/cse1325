@@ -37,6 +37,12 @@ public abstract class Account
 	 * @since	1.0
 	 */
 	 
+	public Account(BufferedReader br) throws IOException
+	{
+		this.accountNumber = Integer.parseInt(br.readLine());
+		nextAccountNumber = Integer.parseInt(br.readLine());
+	}
+	 
 	public void save(BufferedWriter bw) throws IOException
 	{
 		bw.write("" + accountNumber + '\n');
