@@ -27,6 +27,17 @@ public class Alacarte extends Account
 	 * @since		1.0
 	 */
 	 
+	public Alacarte()
+	{
+		super();
+		this.pointsRemaining = 0;
+	}
+	
+	public Alacarte(BufferedReader br) throws IOException
+	{
+		super(br);
+		this.pointsRemaining = Integer.parseInt(br.readLine());
+	}
 	 
 	public void save(BufferedWriter bw) throws IOException
 	{
