@@ -23,8 +23,31 @@ import java.io.IOException;
 
 public class Moes
 {
-	private ArrayList<Media> library = new ArrayList<>();
-	private ArrayList<Student> customers = new ArrayList<>();
+	private ArrayList<Media> library;
+	private ArrayList<Student> customers;
+	
+	public Moes()
+	{
+		library = new ArrayList<>();
+        	customers = new ArrayList<>();
+	}
+	
+	public Moes(BufferedReader br) throws IOException
+	{
+		int size = Integer.parseInt(br.readLine());
+		library = new ArrayList<>();
+		for (int i = 0; i < size; i++)
+		{
+			library.add(new Media(br));
+		}
+		
+		size = Integer.parseInt(br.readLine());
+		customers = new ArrayList<>();
+		for (int i = 0; i < size; i++)
+		{
+			customers.add(new Student(br));
+		}
+	}
 	
 	public void save(BufferedWriter bw) throws IOException
 	{
