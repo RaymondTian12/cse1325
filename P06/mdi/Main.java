@@ -27,6 +27,8 @@ public class Main
 	public void newMoes()
 	{
 		moes = new Moes(); // Discards the moes field's object in favor of a new one
+		filename = null;   // Reset the filename since it's a new file
+   		System.out.println("New MOES file created. Ready to add students and media.");
 	}
 	
 	public void save()
@@ -261,6 +263,10 @@ public class Main
 		menu.addMenuItem(new MenuItem("List Media", 		() -> listMedia()));
 		menu.addMenuItem(new MenuItem("List Available Points", 	() -> listAvailablePoints()));
 		menu.addMenuItem(new MenuItem("Buy Points", 		() -> buyPoints()));
+		menu.addMenuItem(new MenuItem("Save to file", 		() -> save())); // Add Save
+		menu.addMenuItem(new MenuItem("Save as new file", 	() -> saveAs())); // Add Save As
+		menu.addMenuItem(new MenuItem("Open file", 		() -> open())); // Add Open
+		menu.addMenuItem(new MenuItem("New MOES file", 		() -> newMoes())); // Add New MOES
 		menu.addMenuItem(new MenuItem("Exit", 			() -> endApp()));
 	}
 	
