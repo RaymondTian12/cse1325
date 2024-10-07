@@ -189,7 +189,7 @@ public class Main
 		{
 			media = new Media(mediaTitle, mediaURL, mediaPoints);
 		} 
-		catch (IllegalArgumentException e) 
+		catch (Exception e) 
 		{
 			System.err.println("Failed to add media: " + e.getMessage());
 		}
