@@ -24,10 +24,39 @@ public class Main
 	private final String fileVersion = "1.0";
 	private String filename;
 	
-	private boolean dirty = false; // Initially false
+	private boolean dirty = false; // Initially false - set this to true in the methods that add or modify data
 	
 	public void newMoes()
 	{
+		if (dirty)
+		{
+			int choice = Menu.getInt("You have an unsaved change. What would you like to do?\n" +
+						"1) Save the changed data to current file\n" +
+						"2) Save to a new file\n" +
+						"3) Discard the changed data\n" +
+						"4) Abort this command\n");
+			switch(choice)
+			{
+				case 1:
+					save();
+					dirty = false;
+					break;
+				case 2:
+					saveAs();
+					dirty = false;
+					break;
+				case 3:
+					dirty = false;
+					break;
+				case 4:
+					System.out.println("Aborting command");
+					return;
+				default:
+					System.out.println("Invalid option. Please try again");
+				   	return;
+			}
+		}
+		
 		moes = new Moes(); // Discards the moes field's object in favor of a new one
 	}
 	
@@ -67,6 +96,35 @@ public class Main
 	
 	private void open()
 	{
+		if (dirty)
+		{
+			int choice = Menu.getInt("You have an unsaved change. What would you like to do?\n" +
+						"1) Save the changed data to current file\n" +
+						"2) Save to a new file\n" +
+						"3) Discard the changed data\n" +
+						"4) Abort this command\n");
+			switch(choice)
+			{
+				case 1:
+					save();
+					dirty = false;
+					break;
+				case 2:
+					saveAs();
+					dirty = false;
+					break;
+				case 3:
+					dirty = false;
+					break;
+				case 4:
+					System.out.println("Aborting command");
+					return;
+				default:
+					System.out.println("Invalid option. Please try again");
+				   	return;
+			}
+		}
+		
 		System.out.println("Curent filename: " + filename);
 		String newFileName = Menu.getString("Enter a new file name: ");
 		
