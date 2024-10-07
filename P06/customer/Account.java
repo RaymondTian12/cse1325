@@ -62,4 +62,21 @@ public abstract class Account
 	 * @since		1.0
 	 */
 	public abstract String play(Media media);
+	
+	
+	@Override
+	public boolean equals(Object o) 
+	{
+		if (this == o) 
+		{
+			return true; 
+		}
+		if (o == null || getClass() != o.getClass()) 
+		{
+			return false; 
+		}
+		Account account = (Account) o; // Cast to Account
+		return accountNumber == account.accountNumber &&
+		       nextAccountNumber == account.nextAccountNumber; // Compare account numbers
+    }
 }
