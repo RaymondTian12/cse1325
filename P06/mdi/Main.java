@@ -170,61 +170,74 @@ public class Main
 	
 	private void addStudent()
 	{
-		
-		// Note: Student object - name is a string, id is int, email is string, and unlimited is boolean
-		String studentName = Menu.getString("Enter Student Name: ");
-		if (studentName.isEmpty()) 
-		{ 
-        		return;
-    		}
-		Integer studentID = Menu.getInt("Enter Student ID: ");
-		if (studentID == null) 
-		{ 
-        		return;
-    		}
-		String studentEmail = Menu.getString("Enter Student Email: ");
-		if (studentEmail.isEmpty()) 
-		{ 
-        		return;
-    		}
-		Integer studentAccount = Menu.getInt("Enter 1 for Alacarte or 2 for Unlimited: ");
-		if (studentAccount == null) 
-		{ 
-        		return;
-    		}
-		
-		boolean unlimitedAccount = false;
-		if (studentAccount == 1)
-		{
-			unlimitedAccount = false;
-		}
-		else if (studentAccount == 2)
-		{
-			unlimitedAccount = true;
-		}
-		else
-		{
-			System.err.println("Not a valid account type!");
-		}
-		
-		Student student = null;
-		
 		try
 		{
-			student = new Student(studentName, studentID, studentEmail, unlimitedAccount);
-			dirty = true;
+			// Note: Student object - name is a string, id is int, email is string, and unlimited is boolean
+			String studentName = Menu.getString("Enter Student Name: ");
+			if (studentName.isEmpty()) 
+			{ 
+				return;
+	    		}
+			Integer studentID = Menu.getInt("Enter Student ID: ");
+			if (studentID == null) 
+			{ 
+				return;
+	    		}
+			String studentEmail = Menu.getString("Enter Student Email: ");
+			if (studentEmail.isEmpty()) 
+			{ 
+				return;
+	    		}
+			Integer studentAccount = Menu.getInt("Enter 1 for Alacarte or 2 for Unlimited: ");
+			if (studentAccount == null) 
+			{ 
+				return;
+	    		}
+			
+			boolean unlimitedAccount = false;
+			if (studentAccount == 1)
+			{
+				unlimitedAccount = false;
+			}
+			else if (studentAccount == 2)
+			{
+				unlimitedAccount = true;
+			}
+			else
+			{
+				System.err.println("Not a valid account type!");
+			}
+			
+			Student student = null;
+			
+			try
+			{
+				student = new Student(studentName, studentID, studentEmail, unlimitedAccount);
+				dirty = true;
+			}
+			catch (IllegalArgumentException e)
+			{
+				System.err.println(e.getMessage());
+			}
+			
+			moes.addStudent(student);
 		}
-		catch (IllegalArgumentException e)
+		catch (Exception e)
 		{
-			System.err.println(e.getMessage());
+			System.err.println("Unable to add student: " + e.getMessage());
 		}
-		
-		moes.addStudent(student);
 	}
 	
 	private void listStudents()
 	{
-		System.out.println(moes.getStudentList());
+		try
+		{
+			System.out.println(moes.getStudentList());
+		}
+		catch (Exception e)
+		{
+			System.err.println("Unable to list students: " + e.getMessage());
+		}
 	}
 	
 	private void addMedia()
@@ -262,24 +275,43 @@ public class Main
 	
 	private void listMedia()
 	{
-		System.out.println(moes.getMediaList());
+		try
+		{
+			System.out.println(moes.getMediaList());
+		}
+		catch (Exception e)
+		{
+			System.err.println("Unable to list media: " + e.getMessage());
+		}
 	}
 	
 	private void playMedia()
 	{
-    		int studentIndex = Menu.getInt("Enter Student Index: ");
-   		int mediaIndex = Menu.getInt("Enter Media Index: ");
-    
-		System.out.println(moes.playMedia(studentIndex, mediaIndex));
-
+		try
+		{
+	    		int studentIndex = Menu.getInt("Enter Student Index: ");
+	   		int mediaIndex = Menu.getInt("Enter Media Index: ");
+	    
+			System.out.println(moes.playMedia(studentIndex, mediaIndex));
+		}
+		catch (Exception e)
+		{
+			System.err.println("Unable to play media: " + e.getMessage());
+		}
 	}
 	
 	private void listAvailablePoints()
 	{
-		int studentIndex = Menu.getInt("Enter Student Index: ");
-    		
-    		System.out.println("Available Points: " + moes.getPoints(studentIndex));
-
+		try
+		{
+			int studentIndex = Menu.getInt("Enter Student Index: ");
+	    		
+	    		System.out.println("Available Points: " + moes.getPoints(studentIndex));
+	    	}
+	    	catch (Exception e)
+	    	{
+	    		System.err.println("Unable to list available points: " + e.getMessage());
+	    	}
 	}
 	
 	private void buyPoints()
@@ -313,7 +345,7 @@ public class Main
 	{
 		while (running) 
 		{ 
-       			System.out.println(menu); 
+       			System.out.println("\n" + menu); 
 
        			int choice = Menu.getInt("Select an option: "); // Get user choice
        			menu.run(choice); // Execute the selected menu item
