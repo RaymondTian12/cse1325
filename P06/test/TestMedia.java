@@ -1,6 +1,14 @@
 package test;
 import product.Media;
 
+// New imports
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+
+
 public class TestMedia
 {
 	public static void main(String[] args)
@@ -9,7 +17,7 @@ public class TestMedia
 		int points = 10; // Added with update to class Media
 		
 		Media media = new Media("The Little Shop of Horrors", "https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0", points); // Hardcode test data : Title, URL : Added points 
-		String expected = "The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0)";
+		String expected = "The Little Shop of Horrors (https://publicdomainmovie.net/movie/the-little-shop-of-horrors-0) (Points: " + points + ")";
 		
 		if (!(media.toString()).equals(expected))
 		{
@@ -49,6 +57,40 @@ public class TestMedia
 			}
 		}
 		
+		// Tests File IO features
+		Media originalMedia = new Media("Home Alone", "http://homealone.com", 100);
+        
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter("media.txt"))) // Save to a file
+		{
+		    originalMedia.save(bw);
+		} 
+		catch (IOException e) 
+		{
+		    System.err.println("Error writing to file: " + e.getMessage());
+		    failureCount++;
+		}
+		
+		Media loadedMedia = null; // Initialize to null for now
+		try (BufferedReader reader = new BufferedReader(new FileReader("media.txt"))) 
+		{
+		    loadedMedia = new Media(reader);
+		} catch (IOException e) 
+		{
+		    System.err.println("Error reading from file: " + e.getMessage());
+		    failureCount++;
+		}
+
+		// Check if originalMedia and loadedMedia are equal
+		if (loadedMedia != null) 
+		{ 
+		    boolean areEqual = originalMedia.equals(loadedMedia);
+		    if (!areEqual)
+		    {
+		    	System.err.println("Original and loaded media are not equal: " + areEqual);
+		    	failureCount++;
+		    }
+		}
+			
 		if (failureCount > 0)
 		{
 			System.err.println("FAIL: Error code " + failureCount);
