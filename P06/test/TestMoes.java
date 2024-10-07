@@ -6,6 +6,13 @@ import customer.Student;
 import customer.Alacarte;
 import customer.Unlimited;
 
+// New imports
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+
 public class TestMoes
 {
 	public static void main(String[] args)
@@ -106,6 +113,52 @@ public class TestMoes
 			System.err.println("Expected: " + expectedUnlimitedPoints + " points");
 			System.err.println("Actual: " + actualUnlimitedPoints + " points");
 			failureCount++;
+		}
+		
+		// Test new file IO features
+		String filename = "testmoes.txt";
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) 
+		{
+		       moes.save(bw);
+            	}
+		catch (IOException e)
+		{
+			System.err.println("Error writing to file: " + e.getMessage());
+			failureCount++;
+		}
+		
+		Moes loadedMoes = null;
+            	try (BufferedReader br = new BufferedReader(new FileReader(filename))) 
+            	{
+		        loadedMoes = new Moes(br);
+            	}
+            	catch (IOException e)
+            	{
+            		System.err.println("Error reading from file: " + e.getMessage());
+			failureCount++;
+            	}
+            	
+            	if (loadedMoes != null) 
+            	{
+		   	String actualMediaList = loadedMoes.getMediaList();
+		   	String expectedMediaList = moes.getMediaList();
+		   	if (!actualMediaList.equals(expectedMediaList)) 
+		   	{
+				System.err.println("FAIL: Loaded media list does not match original.");
+				System.err.println("Expected: " + expectedMediaList);
+				System.err.println("Actual: " + actualMediaList);
+				failureCount++;
+			}
+			String actualStudentList = loadedMoes.getStudentList();
+            		String expectedStudentList = moes.getStudentList();
+            
+		    	if (!actualStudentList.equals(expectedStudentList)) 
+		    	{
+				System.err.println("FAIL: Loaded student list does not match original.");
+				System.err.println("Expected: " + expectedStudentList);
+				System.err.println("Actual: " + actualStudentList);
+				failureCount++;
+		    	}
 		}
 		
 		// Exit program with failureCount or 0 depending on which data is used
