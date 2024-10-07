@@ -27,8 +27,6 @@ public class Main
 	public void newMoes()
 	{
 		moes = new Moes(); // Discards the moes field's object in favor of a new one
-		filename = null;   // Reset the filename since it's a new file
-   		System.out.println("New MOES file created. Ready to add students and media.");
 	}
 	
 	public void save()
@@ -206,7 +204,8 @@ public class Main
     		}
     		else
     		{
-    			moes.buyPoints(studentIndex, boughtPoints);
+    			String result = moes.buyPoints(studentIndex, boughtPoints);
+    			System.out.println(result);
     		}
 
 	}
@@ -238,6 +237,7 @@ public class Main
 		this.output = "";
 		this.menu = new Menu();
 		this.running = true;
+		this.filename = "defaultmoes" + extension;
 		this.banner = 	"        _.-._\n" +
 				"     .-'     '-.\n" +
 				"   .'           '.\n" +
