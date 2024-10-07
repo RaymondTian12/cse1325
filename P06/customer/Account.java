@@ -30,13 +30,6 @@ public abstract class Account
 		this.accountNumber = nextAccountNumber++;
 	}
 	
-	/**
-	 * Returns an account's associated account number
-	 * 
-	 * @return	the account's associated account number
-	 * @since	1.0
-	 */
-	 
 	public Account(BufferedReader br) throws IOException
 	{
 		this.accountNumber = Integer.parseInt(br.readLine());
@@ -49,6 +42,13 @@ public abstract class Account
 		bw.write("" + nextAccountNumber + '\n');
 	}
 	
+	/**
+	 * Returns an account's associated account number
+	 * 
+	 * @return	the account's associated account number
+	 * @since	1.0
+	 */
+	 
 	public int getAccountNumber()
 	{
 		return accountNumber;
