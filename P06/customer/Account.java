@@ -33,7 +33,11 @@ public abstract class Account
 	public Account(BufferedReader br) throws IOException
 	{
 		this.accountNumber = Integer.parseInt(br.readLine());
-		nextAccountNumber = Integer.parseInt(br.readLine());
+		int readNextAccountNumber = Integer.parseInt(br.readLine());
+    		if (readNextAccountNumber > nextAccountNumber) 
+    		{
+        		nextAccountNumber = readNextAccountNumber;
+		}
 	}
 	 
 	public void save(BufferedWriter bw) throws IOException
