@@ -19,13 +19,6 @@ import java.io.IOException;
 public class Alacarte extends Account
 {
 	private int pointsRemaining;
-	
-	/**
-	 * Adds the number of points to the points remaining balance
-	 *
-	 * @param points	the number of points to be added
-	 * @since		1.0
-	 */
 	 
 	public Alacarte()
 	{
@@ -45,6 +38,13 @@ public class Alacarte extends Account
 		bw.write("" + pointsRemaining + '\n');
 	}
 	 
+	/**
+	 * Adds the number of points to the points remaining balance
+	 *
+	 * @param points	the number of points to be added
+	 * @since		1.0
+	 */
+	  
 	public void buyPoints(int points)
 	{
 		pointsRemaining += points;
