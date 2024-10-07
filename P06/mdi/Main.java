@@ -112,9 +112,25 @@ public class Main
 		
 		// Note: Student object - name is a string, id is int, email is string, and unlimited is boolean
 		String studentName = Menu.getString("Enter Student Name: ");
-		int studentID = Menu.getInt("Enter Student ID: ");
+		if (studentName.isEmpty()) 
+		{ 
+        		return;
+    		}
+		Integer studentID = Menu.getInt("Enter Student ID: ");
+		if (studentID == null) 
+		{ 
+        		return;
+    		}
 		String studentEmail = Menu.getString("Enter Student Email: ");
-		int studentAccount = Menu.getInt("Enter 1 for Alacarte or 2 for Unlimited: ");
+		if (studentEmail.isEmpty()) 
+		{ 
+        		return;
+    		}
+		Integer studentAccount = Menu.getInt("Enter 1 for Alacarte or 2 for Unlimited: ");
+		if (studentAccount == null) 
+		{ 
+        		return;
+    		}
 		
 		boolean unlimitedAccount = false;
 		if (studentAccount == 1)
@@ -152,8 +168,20 @@ public class Main
 	private void addMedia()
 	{
 		String mediaTitle = Menu.getString("Enter Media Title: ");
+		if (mediaTitle.isEmpty())
+		{
+			return;
+		}
 		String mediaURL = Menu.getString("Enter Media URL: ");
-		int mediaPoints = Menu.getInt("Enter Media Points Required: ");
+		if (mediaURL.isEmpty())
+		{
+			return;
+		}
+		Integer mediaPoints = Menu.getInt("Enter Media Points Required: ");
+		if (mediaPoints == null)
+		{
+			return;
+		}
 		
 		Media media = null;
 		
