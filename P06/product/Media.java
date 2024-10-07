@@ -99,4 +99,21 @@ public class Media
 	{
 		return title + " (" + url + ") (Points: " + points + ")" ;
 	}
+	@Override
+	public boolean equals(Object o) 
+	{
+	    if (this == o)  
+	    {
+	    	return true; 
+	    }
+	    if (o == null || getClass() != o.getClass()) 
+	    {
+	    	return false; 
+	    }
+
+	    Media media = (Media)o; 
+	    return points == media.points && // Compare points
+		   title.equals(media.title) && // Compare title
+		   url.equals(media.url); // Compare url
+}
 }
