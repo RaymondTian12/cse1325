@@ -34,7 +34,8 @@ public class Main
 						"1) Save the changed data to current file\n" +
 						"2) Save to a new file\n" +
 						"3) Discard the changed data\n" +
-						"4) Abort this command\n");
+						"4) Abort this command\n" +
+						"Selection (enter a number): ");
 			switch(choice)
 			{
 				case 1:
@@ -283,21 +284,28 @@ public class Main
 	
 	private void buyPoints()
 	{
-		int studentIndex = Menu.getInt("Enter Student Index: ");
-    		
-    		System.out.println("Current Points: " + moes.getPoints(studentIndex) + "\n");
-    		int boughtPoints = Menu.getInt("How many additional points would you like to buy? ");
-    		
-    		if (boughtPoints < 0)
-    		{
-    			System.err.println("You can not purchase negative points!");
-    		}
-    		else
-    		{
-    			String result = moes.buyPoints(studentIndex, boughtPoints);
-    			System.out.println(result);
-    			dirty = true;
-    		}
+		try
+		{
+			int studentIndex = Menu.getInt("Enter Student Index: ");
+	    		
+	    		System.out.println("Current Points: " + moes.getPoints(studentIndex) + "\n");
+	    		int boughtPoints = Menu.getInt("How many additional points would you like to buy? ");
+	    		
+	    		if (boughtPoints < 0)
+	    		{
+	    			System.err.println("You can not purchase negative points!");
+	    		}
+	    		else
+	    		{
+	    			String result = moes.buyPoints(studentIndex, boughtPoints);
+	    			System.out.println(result);
+	    			dirty = true;
+	    		}
+	    	}
+	    	catch (Exception e)
+	    	{
+	    		System.err.println("Unable to buy points: " + e.getMessage());
+	    	}
 
 	}
 	
