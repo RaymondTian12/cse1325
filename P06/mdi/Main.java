@@ -24,6 +24,8 @@ public class Main
 	private final String fileVersion = "1.0";
 	private String filename;
 	
+	private boolean dirty = false; // Initially false
+	
 	public void newMoes()
 	{
 		moes = new Moes(); // Discards the moes field's object in favor of a new one
@@ -151,6 +153,7 @@ public class Main
 		try
 		{
 			student = new Student(studentName, studentID, studentEmail, unlimitedAccount);
+			dirty = true;
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -188,6 +191,7 @@ public class Main
 		try 
 		{
 			media = new Media(mediaTitle, mediaURL, mediaPoints);
+			dirty = true;
 		} 
 		catch (Exception e) 
 		{
@@ -234,6 +238,7 @@ public class Main
     		{
     			String result = moes.buyPoints(studentIndex, boughtPoints);
     			System.out.println(result);
+    			dirty = true;
     		}
 
 	}
