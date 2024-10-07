@@ -155,7 +155,7 @@ public class Main
 				this.moes = moes2;
 				this.filename = newFileName;
 			}
-			catch (IOException e)
+			catch (Exception e)
 			{
 				System.err.println("Failed to resconstruct new Moes object: " + e.getMessage());	
 			}
