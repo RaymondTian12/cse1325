@@ -333,11 +333,16 @@ public class Main
 	
 	public Main()
 	{
+		this("defaultmoes.txt");
+	}
+	
+	public Main(String filename)
+	{
+		this.filename = filename;	
 		this.moes = new Moes();
 		this.output = "";
 		this.menu = new Menu();
 		this.running = true;
-		this.filename = "defaultmoes" + extension;
 		this.banner = 	"        _.-._\n" +
 				"     .-'     '-.\n" +
 				"   .'           '.\n" +
@@ -368,15 +373,17 @@ public class Main
 	
 	public static void main(String[] args)
 	{
-		Main mainApp = new Main(); 
+		String filename = null;
+		Main mainApp = null;
 		
 		if (args.length > 0)
 		{
-			String filename = args[0];
+			filename = args[0];
+			mainApp = new Main(filename);  
 		}
 		else
 		{
-		
+			mainApp = new Main();
 		}
 		
        		mainApp.mdi();
