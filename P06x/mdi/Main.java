@@ -50,7 +50,7 @@ public class Main
 	public void saveAs()
 	{
 		System.out.println("Current filename: " + filename);
-		String newFileName = Menu.getString("Enter a new filename: ");
+		String newFileName = Menu.getString("Enter the filename you would like to saveAs: ");
 		
 		if (newFileName.isEmpty()) // If user doesn't enter anything, return
 		{
@@ -96,7 +96,7 @@ public class Main
 	private void open()
 	{
 		System.out.println("Curent filename: " + filename);
-		String newFileName = Menu.getString("Enter a new file name: ");
+		String newFileName = Menu.getString("Enter the filename you would like to open: ");
 		
 		if (newFileName.isEmpty())
 		{
@@ -261,7 +261,12 @@ public class Main
 	    		int studentIndex = Menu.getInt("Enter Student Index: ");
 	   		int mediaIndex = Menu.getInt("Enter Media Index: ");
 	    
-			System.out.println(moes.playMedia(studentIndex, mediaIndex));
+			String result = moes.playMedia(studentIndex, mediaIndex);
+			if (result != null)
+			{
+				System.out.println(result);
+				save();
+			}
 		}
 		catch (Exception e)
 		{
