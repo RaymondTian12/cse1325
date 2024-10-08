@@ -377,10 +377,17 @@ public class Main
 	{
 		while (running) 
 		{ 
-       			System.out.println("\n" + menu); 
+			try
+			{
+	       			System.out.println("\n" + menu); 
 
-       			int choice = Menu.getInt("Select an option: "); // Get user choice
-       			menu.run(choice); // Execute the selected menu item
+	       			int choice = Menu.getInt("Select an option: "); // Get user choice
+	       			menu.run(choice); // Execute the selected menu item
+	       		}
+	       		catch (Exception e)
+	       		{
+	       			System.err.println("Invalid Option: " + e.getMessage());
+	       		}
        		}
 	}
 	
