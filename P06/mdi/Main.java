@@ -84,7 +84,7 @@ public class Main
 	public void saveAs()
 	{
 		System.out.println("Current filename: " + filename);
-		String newFileName = Menu.getString("Enter a new filename: ");
+		String newFileName = Menu.getString("Enter the filename you would like to saveAs: ");
 		
 		if (newFileName.isEmpty()) // If user doesn't enter anything, return
 		{
@@ -100,7 +100,7 @@ public class Main
 		save(); // Sets dirty to false again
 	}
 	
-	private void createBackup(String filePath) 
+	private void createBackup(String filePath) // Added method for extreme bonus 1
 	{
     		File file = new File(filePath);
     		if (file.exists()) 
@@ -135,7 +135,8 @@ public class Main
 						"1) Save the changed data to current file\n" +
 						"2) Save to a new file\n" +
 						"3) Discard the changed data\n" +
-						"4) Abort this command\n");
+						"4) Abort this command\n" +
+						"Selection (enter a number): ");
 			switch(choice)
 			{
 				case 1:
@@ -159,7 +160,7 @@ public class Main
 		}
 		
 		System.out.println("Curent filename: " + filename);
-		String newFileName = Menu.getString("Enter a new file name: ");
+		String newFileName = Menu.getString("Enter the filename you would like to open: ");
 		
 		if (newFileName.isEmpty())
 		{
@@ -186,6 +187,7 @@ public class Main
 				Moes moes2 = new Moes(br); 
 				this.moes = moes2;
 				this.filename = newFileName;
+				dirty = false;
 			}
 			catch (Exception e)
 			{
