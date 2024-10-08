@@ -262,10 +262,14 @@ public class Main
 	   		int mediaIndex = Menu.getInt("Enter Media Index: ");
 	    
 			String result = moes.playMedia(studentIndex, mediaIndex);
-			if (result != null)
+			if (result != null && !result.contains("Buy more points"))
 			{
 				System.out.println(result);
 				save();
+			}
+			else
+			{
+				System.out.println(result);
 			}
 		}
 		catch (Exception e)
