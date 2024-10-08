@@ -189,6 +189,7 @@ public class Main
 			}
 			
 			moes.addStudent(student);
+			save(); // Auto-save after adding a student
 		}
 		catch (Exception e)
 		{
@@ -238,6 +239,7 @@ public class Main
 		}
 		
 		moes.addMedia(media);
+		save(); // Auto-save after adding a media
 	}
 	
 	private void listMedia()
@@ -298,6 +300,7 @@ public class Main
 	    		{
 	    			String result = moes.buyPoints(studentIndex, boughtPoints);
 	    			System.out.println(result);
+	    			save(); // Auto-save after buying points
 	    		}
 	    	}
 	    	catch (Exception e)
@@ -366,6 +369,16 @@ public class Main
 	public static void main(String[] args)
 	{
 		Main mainApp = new Main(); 
+		
+		if (args.length > 0)
+		{
+			String filename = args[0];
+		}
+		else
+		{
+		
+		}
+		
        		mainApp.mdi();
 	}
 }
