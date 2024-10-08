@@ -110,7 +110,7 @@ public class Main
 
 	       		if (backupFile.exists()) 
 	       		{
-		    		backupFile.delete(); // Remove the old backup, if it exists
+		    		backupFile.delete(); // Remove the old backup if needed 
 	       		 }
 
 	       	 	boolean success = file.renameTo(backupFile);
