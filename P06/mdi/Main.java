@@ -11,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.FileReader;
+import java.io.File;
 
 public class Main
 {
@@ -59,15 +60,19 @@ public class Main
 		}
 		
 		moes = new Moes(); // Discards the moes field's object in favor of a new one
+		dirty = false;
 	}
 	
 	public void save()
 	{
+		createBackup(filename);
+		
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename)))
 		{
 			bw.write(magicCookie + '\n');
 			bw.write(fileVersion + '\n');
 			moes.save(bw);
+			dirty = false;
 		}
 		catch (IOException e)
 		{
@@ -92,7 +97,32 @@ public class Main
 		}
 		
 		filename = newFileName;
-		save();
+		save(); // Sets dirty to false again
+	}
+	
+	private void createBackup(String filePath) 
+	{
+    		File file = new File(filePath);
+    		if (file.exists()) 
+    		{ 
+        	
+        		File backupFile = new File(filePath + "~"); // Create a backup file with a tilde (~) appended
+
+	       		if (backupFile.exists()) 
+	       		{
+		    		backupFile.delete(); // Remove the old backup, if it exists
+	       		 }
+
+	       	 	boolean success = file.renameTo(backupFile);
+			if (success) 
+			{
+		    		System.out.println("Backup created: " + backupFile.getName());
+			} 
+        		else 
+        		{
+            			System.err.println("Failed to create backup.");
+        		}
+   	 	}
 	}
 	
 	private void open()
@@ -384,6 +414,7 @@ public class Main
 				"         | |\n" +
 				"         | |\n" +
 				"Welcome to the Mavs Online Entertainment System (MOES)!\n\n";
+		this.dirty = false;
 		
 		displayBanner();
 		
