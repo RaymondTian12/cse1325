@@ -116,7 +116,9 @@ public class Main
 	       	 	boolean success = file.renameTo(backupFile);
 			if (success) 
 			{
-		    		System.out.println("Backup created: " + backupFile.getName());
+		    		System.out.println("Auto-Backup created: " + backupFile.getName());
+		    		System.out.println("To restore this backup, rename '" + backupFile.getName() +
+		    				   "' to '" + file.getName() + "' (after deleting or renaming the current file).");
 			} 
         		else 
         		{
