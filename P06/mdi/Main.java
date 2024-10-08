@@ -326,7 +326,14 @@ public class Main
 	    		int studentIndex = Menu.getInt("Enter Student Index: ");
 	   		int mediaIndex = Menu.getInt("Enter Media Index: ");
 	    
-			System.out.println(moes.playMedia(studentIndex, mediaIndex));
+			String result = moes.playMedia(studentIndex, mediaIndex);
+			if (result != null)
+			{
+				System.out.println(result);
+				dirty = true;
+			}
+			
+			
 		}
 		catch (Exception e)
 		{
