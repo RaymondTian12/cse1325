@@ -386,6 +386,10 @@ public class Main
 		if (args.length > 0)
 		{
 			filename = args[0];
+			if (!filename.endsWith(".txt"))
+			{
+				filename += ".txt";
+			}
 			mainApp = new Main(filename);  
 		}
 		else
