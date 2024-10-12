@@ -93,6 +93,26 @@ public class Boggle {
             }
             
             // =========== CHANGE THIS BLOCK OF CODE TO ADD THREADING ===========
+            
+            ArrayList<Thread> threads = new ArrayList<>(); // Create an ArrayList of Thread objects named threads
+            
+            // Divide boards among threads - recommended to use doubles here
+            double boardsPerThread = (double) numberOfBoards/numThreads;
+            
+            for (int i = 0; i < numThreads - 1; i++) { // Iterate from 0 to numThreads-1
+            	
+            	
+            	// Every parameter passed to solveRange is final - requirement for parameter passed to threads
+            	// Parameters: int first, int lastPlusOne, int threadNumber
+            	final int threadFirst = i;
+            	final int threadEnd = ;
+            	final int 
+            	
+            	
+            	
+            }
+            
+            
             // Find words on the Boggle boards, collecting the solutions in a TreeSet
             int threadNumber = 0; // This will be set to a unique int for each of your threads
             for(Board board : boards) {
