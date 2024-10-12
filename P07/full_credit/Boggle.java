@@ -94,22 +94,24 @@ public class Boggle {
             
             // =========== CHANGE THIS BLOCK OF CODE TO ADD THREADING ===========
             
-            ArrayList<Thread> threads = new ArrayList<>(); // Create an ArrayList of Thread objects named threads
+            Thread[] threads = new Thread[numThreads]; // Create an Array of Thread objects named threads
             
             // Divide boards among threads - recommended to use doubles here
             double boardsPerThread = (double) numberOfBoards/numThreads;
             
+            int start = 0;
             for (int i = 0; i < numThreads - 1; i++) { // Iterate from 0 to numThreads-1
             	
             	
             	// Every parameter passed to solveRange is final - requirement for parameter passed to threads
             	// Parameters: int first, int lastPlusOne, int threadNumber
-            	final int threadFirst = i;
-            	final int threadEnd = ;
-            	final int 
+            	final int threadFirst = start;
+            	final int threadEnd = ; 
+            	final int threadNumber = i; // thread number is the value of i from loop 
             	
+            	thread[i] = ;
             	
-            	
+            	start = end;
             }
             
             
