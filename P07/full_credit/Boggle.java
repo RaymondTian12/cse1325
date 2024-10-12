@@ -23,7 +23,25 @@ public class Boggle {
     private static int verbosity = 0;   // smaller ints mean less output - us 0 for timing
     
     // =========== WRITE AND INVOKE THIS METHOD FOR EACH THREAD ===========
-    private static void solveRange(int first, int lastPlusOne, int threadNumber) {
+    private static void solveRange(int first, int lastPlusOne, int threadNumber) { // Do not make sovleRange synchronized!
+    	for (int i = first;  i < lastPlusOne; i++) { // Use a loop across the range of boards to be solved by this thread
+    		Board board = null;
+    		synchronized(boards) { // Protect the boards.get method from thread interference
+    			boards.get(i); // Obtain reference to the board
+    		}
+    		
+    		Solver solver = new Solver(board, threadNumber, verbosity); // Instance a solver for the board
+    		for (String word : words) { // Iterate over the words for this Solver instance
+    			Solution solution = solver.solve(word); // Pass each word to the solve method
+    			if (solution != null) { // If non-null solution is returned from solve
+    				synchronized(solutions) { // Protect solutions from thread interference
+    					solutions.add(solution); // Add to solutions
+    				}
+    			}
+    			
+    			log("Thread: " + threadNumber + " -> Board: " + i, 1);
+    		}
+    	}
     }
     // =========== END THREAD METHOD ===========
 
