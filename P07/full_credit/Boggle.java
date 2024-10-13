@@ -112,7 +112,7 @@ public class Boggle {
             	threads[i] = new Thread(() -> solveRange(threadFirst, threadEnd, threadNumber)); // Use a Lambda when instance a new Thread object
             	threads[i].start();
             	
-            	start = end;
+            	start = threadEnd;
             }
             
             for (int i = 0; i < numThreads - 1; i++) {
