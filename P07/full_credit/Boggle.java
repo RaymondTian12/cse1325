@@ -25,10 +25,11 @@ public class Boggle {
     // =========== WRITE AND INVOKE THIS METHOD FOR EACH THREAD ===========
     private static void solveRange(int first, int lastPlusOne, int threadNumber) { // Do not make sovleRange synchronized!
     	for (int i = first;  i < lastPlusOne; i++) { // Use a loop across the range of boards to be solved by this thread
-    		Board board = null;
-    		synchronized(boards) { // Protect the boards.get method from thread interference
-    			boards.get(i); // Obtain reference to the board
-    		}
+    		Board board = boards.get(i);
+    		//Board board = null;
+    		//synchronized(boards) { // Protect the boards.get method from thread interference
+    		//	boards.get(i); // Obtain reference to the board
+    		//}
     		
     		Solver solver = new Solver(board, threadNumber, verbosity); // Instance a solver for the board
     		for (String word : words) { // Iterate over the words for this Solver instance
@@ -100,7 +101,7 @@ public class Boggle {
             double boardsPerThread = (double) numberOfBoards/numThreads;
             
             int start = 0;
-            for (int i = 0; i < numThreads - 1; i++) { // Iterate from 0 to numThreads-1
+            for (int i = 0; i < numThreads; i++) { // Iterate from 0 to numThreads-1
             	
             	// Every parameter passed to solveRange is final - requirement for parameter passed to threads
             	// Parameters: int first, int lastPlusOne, int threadNumber
@@ -115,19 +116,19 @@ public class Boggle {
             	start = threadEnd;
             }
             
-            for (int i = 0; i < numThreads - 1; i++) {
+            for (int i = 0; i < numThreads; i++) {
             	threads[i].join();
             }
             
             // Find words on the Boggle boards, collecting the solutions in a TreeSet
-            int threadNumber = 0; // This will be set to a unique int for each of your threads
+            /* int threadNumber = 0; // This will be set to a unique int for each of your threads
             for(Board board : boards) {
                 Solver solver = new Solver(board, threadNumber, verbosity);
                 for(String word : words) {
                     Solution solution = solver.solve(word);
                     if(solution != null) solutions.add(solution);
                 }
-            }
+            } */
             // =========== END BLOCK OF CODE TO ADD THREADING ===========
 
             // Print all the solutions if requested
