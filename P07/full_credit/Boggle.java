@@ -102,18 +102,22 @@ public class Boggle {
             int start = 0;
             for (int i = 0; i < numThreads - 1; i++) { // Iterate from 0 to numThreads-1
             	
-            	
             	// Every parameter passed to solveRange is final - requirement for parameter passed to threads
             	// Parameters: int first, int lastPlusOne, int threadNumber
+            	// Example: solveRange(0, 10, 0), then (10, 20, 1), and so on through solveRange(90, 100, 9)
             	final int threadFirst = start;
-            	final int threadEnd = ; 
-            	final int threadNumber = i; // thread number is the value of i from loop 
+            	final int threadEnd = (i == numThreads - 1) ? numberOfBoards : (int) Math.round((i + 1) * boardsPerThread);
+            	final int threadNumber = i; // thread number can be value of i from loop
             	
-            	thread[i] = ;
+            	threads[i] = new Thread(() -> solveRange(threadFirst, threadEnd, threadNumber)); // Use a Lambda when instance a new Thread object
+            	threads[i].start();
             	
             	start = end;
             }
             
+            for (int i = 0; i < numThreads - 1; i++) {
+            	threads[i].join();
+            }
             
             // Find words on the Boggle boards, collecting the solutions in a TreeSet
             int threadNumber = 0; // This will be set to a unique int for each of your threads
