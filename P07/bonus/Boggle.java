@@ -40,8 +40,7 @@ public class Boggle {
     			
     			Board board = boards.get(boardIndex);
         		Solver solver = new Solver(board, threadNumber, verbosity);
-        		
-        		Solver solver = new Solver(board, threadNumber, verbosity); // Instance a solver for the board
+        	
     			for (String word : words) { // Iterate over the words for this Solver instance
     				Solution solution = solver.solve(word); // Pass each word to the solve method
     				if (solution != null) { // If non-null solution is returned from solve
@@ -50,9 +49,11 @@ public class Boggle {
     					}
     				}	
     			
-    			log("Thread: " + threadNumber + " -> Board: " + i, 1);
+    			log("Thread: " + threadNumber + " -> Board: " + boardIndex, 1);
     			}
     		}
+    	}
+    	catch (Exception e) {
     	}
     }
     // =========== END THREAD METHOD ===========
