@@ -23,7 +23,37 @@ public class Boggle {
     private static int verbosity = 0;   // smaller ints mean less output - us 0 for timing
     
     // =========== WRITE AND INVOKE THIS METHOD FOR EACH THREAD ===========
-    private static void solveRange(int first, int lastPlusOne, int threadNumber) {
+    private static int boardCounter = 0; // Declare a shared counter 
+    private static Object lock = new Object();
+    
+    private static void solvePool(int threadNumber) { // Thread doesn't need range
+    	try {
+    		while (true) {
+    			int boardIndex;
+    			synchronized(lock) {
+    				if (boardCounter >= numberOfBoards) {
+    					return;
+    				}
+    				boardIndex = boardCounter;
+    				boardCounter++;
+    			}
+    			
+    			Board board = boards.get(boardIndex);
+        		Solver solver = new Solver(board, threadNumber, verbosity);
+        		
+        		Solver solver = new Solver(board, threadNumber, verbosity); // Instance a solver for the board
+    			for (String word : words) { // Iterate over the words for this Solver instance
+    				Solution solution = solver.solve(word); // Pass each word to the solve method
+    				if (solution != null) { // If non-null solution is returned from solve
+    				synchronized(solutions) { // Protect solutions from thread interference
+    					solutions.add(solution); // Add to solutions
+    					}
+    				}	
+    			
+    			log("Thread: " + threadNumber + " -> Board: " + i, 1);
+    			}
+    		}
+    	}
     }
     // =========== END THREAD METHOD ===========
 
@@ -75,14 +105,15 @@ public class Boggle {
             }
             
             // =========== CHANGE THIS BLOCK OF CODE TO ADD THREADING ===========
-            // Find words on the Boggle boards, collecting the solutions in a TreeSet
-            int threadNumber = 0; // This will be set to a unique int for each of your threads
-            for(Board board : boards) {
-                Solver solver = new Solver(board, threadNumber, verbosity);
-                for(String word : words) {
-                    Solution solution = solver.solve(word);
-                    if(solution != null) solutions.add(solution);
-                }
+            Thread[] threads = new Thread[numThreads];
+            for (int i = 0; i < numThreads; i++) { // Iterate from 0 to numThreads-1
+            	final int threadNumber = i; // thread number can be value of i from loop
+            	threads[i] = new Thread(() -> solvePool(threadNumber));
+            	threads[i].start();
+            }
+            
+            for (int i = 0; i < numThreads; i++) {
+            	threads[i].join();
             }
             // =========== END BLOCK OF CODE TO ADD THREADING ===========
 
