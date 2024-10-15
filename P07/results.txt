@@ -19,10 +19,11 @@ Found 25687 solutions
 Hash is 0x52B0C984
 java Boggle 70  38.78s user 0.70s system 102% cpu 38.410 total
 
-I used 70 boards to obtain a 30 to 45 second runtime. In my run the real time was 38.410 seconds.
+I used 70 boards to obtain a 30 to 45 second runtime. In my run, the real time was 38.410 seconds.
 
 QUESTION 2: Provide the full output (including the time command) for your program, with 1 to 16 threads. **Ensure that the result is the same for all 16 runs.** With bash, you can run all of these with a single command if you like, replacing "90" with whatever Boggle command line arguments you identified in QUESTION 1: 
 
+for i in {1..16} ; do echo ; echo $i Threads; time java Boggle 90 - $i ; done
 
 raymondtian@raymonds-mbp full_credit % for i in {1..16} ; do echo ; echo $i Threads; time java Boggle 70 - $i ; done
 
@@ -128,7 +129,7 @@ Adding more threads does speed up the program to a certain point. In my run, the
 
 QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
 
-Yes, it increased from 0.41 seconds with 1 thread to 0.85 seconds with 16 threads in my run. This is because the system needs to manage more threads as they are added such as resources allocated to each one.
+Adding more threads does increase the system load which is shown in a couple data points above. The system time increased from 0.41 seconds with 1 thread to 0.85 seconds with 16 threads in my run. The CPU percentage also increases significantly as additional threads are used. This is because the system needs to manage more threads as they are added such as resources allocated to each one, causing system load to increase.
 
 BONUS
 =====
