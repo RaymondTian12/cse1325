@@ -14,6 +14,7 @@ QUESTION 1: What Boggle command line arguments ([#boards] and if not default [bo
 
 raymondtian@raymonds-mbp full_credit % time java Boggle 70
 
+
 Found 25687 solutions
 Hash is 0x52B0C984
 java Boggle 70  38.78s user 0.70s system 102% cpu 38.410 total
@@ -123,18 +124,118 @@ java Boggle 70 - $i  35.44s user 0.76s system 910% cpu 3.976 total
 
 QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
 
-Adding more threads does speed up the program to a certain point. In my run, the real time was 39.642 seconds for 1 thread which decreased to about 4 seconds 8 threads. However, the improvements were much less significant after this point and even begin to slow down the program slightly. With 9 threads, the real time was 3.731 seconds which slowed to to 3.976 with 16 threads. This is because there is more overhead with too many threads and more contention for resources such as memory.
+Adding more threads does speed up the program to a certain point. In my run, the real time was 39.642 seconds for 1 thread which decreased to about 4 seconds at 8 threads. However, the improvements were much less significant after this point and even begin to slow down the program slightly. With 9 threads, the real time was 3.731 seconds which slowed to to 3.976 with 16 threads. This is because there is more overhead with too many threads and more contention for resources such as memory.
 
 QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
 
-Yes, it increased from 0.41 seconds with 1 thread to 0.85 seconds with 16 threads in my run. This is because the systme needs to manage more threads as they are added such as resources allocated to each one.
+Yes, it increased from 0.41 seconds with 1 thread to 0.85 seconds with 16 threads in my run. This is because the system needs to manage more threads as they are added such as resources allocated to each one.
 
 BONUS
 =====
 
 QUESTION 5: Time your version of Boggle as you did for the full credit version. Is this additional layer of threading faster, slower, or roughly equivalent in performance? Why?
 
+It appears that the additional layer of threading in the bonus implementation is roughly equivalent to the full credit version in terms of performance. This suggests that although there is better management of thread usage, the performance was not significantly improved. This could be due to the overhead associated with managing an additional layer of threading, which offsets any potential performance gains. Furthermore, allocating resources and managing synchronization among the threads may have contributed to the lack of improvement in performance.
 
 YOUR Timing: 
+
+java Boggle 70  57.59s user 0.63s system 102% cpu 57.078 total
+raymondtian@Raymonds-MBP bonus % for i in {1..16} ; do echo ; echo $i Threads; time java Boggle 70 - $i ; done
+
+1 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  54.34s user 0.63s system 102% cpu 53.666 total
+
+2 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  48.94s user 0.55s system 204% cpu 24.211 total
+
+3 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  25.51s user 0.30s system 300% cpu 8.582 total
+
+4 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  24.41s user 0.29s system 397% cpu 6.205 total
+
+5 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  25.91s user 0.31s system 504% cpu 5.198 total
+
+6 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  34.33s user 0.39s system 589% cpu 5.889 total
+
+7 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  29.12s user 0.41s system 691% cpu 4.273 total
+
+8 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  29.57s user 0.46s system 763% cpu 3.933 total
+
+9 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  30.69s user 0.54s system 848% cpu 3.680 total
+
+10 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  31.26s user 0.64s system 938% cpu 3.397 total
+
+11 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  32.52s user 0.70s system 901% cpu 3.686 total
+
+12 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  32.87s user 0.78s system 944% cpu 3.561 total
+
+13 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  32.77s user 0.73s system 913% cpu 3.665 total
+
+14 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  33.51s user 0.82s system 945% cpu 3.630 total
+
+15 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  33.56s user 0.76s system 942% cpu 3.641 total
+
+16 Threads
+
+Found 25687 solutions
+Hash is 0x52B0C984
+java Boggle 70 - $i  34.27s user 0.83s system 927% cpu 3.783 total
 
 
