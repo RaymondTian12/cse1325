@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 		}
 		
 		std::cout << "Words:" << std::endl;
-		for (std::string word : words)
+		for (std::string word : *words)
 		{
 			std::cout << word << std::endl;
 		}
