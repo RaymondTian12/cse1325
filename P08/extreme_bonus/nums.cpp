@@ -26,13 +26,13 @@ int main(int argc, char* argv[])
 			}
 		}
 		
-		std::cout << "Numbers:" << std::endl;
+		std::cout << "Numbers (shuffled):" << std::endl;
 		for (std::string number : numbers)
 		{
 			std::cout << number << std::endl;
 		}
 		
-		std::cout << "Words:" << std::endl;
+		std::cout << "Words (sorted):" << std::endl;
 		for (std::string word : *words)
 		{
 			std::cout << word << std::endl;
