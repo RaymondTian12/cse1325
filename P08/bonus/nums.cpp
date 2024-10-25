@@ -3,7 +3,7 @@
 int main(int argc, char* argv[])
 {
 	std::vector <std::string> numbers; // Numbers on the stack
-	std::vector <std::string> words = new std::vector <std::string>(); // Words on the heap
+	std::vector <std::string>* words = new std::vector <std::string>(); // Words on the heap
 	
 	try
 	{
