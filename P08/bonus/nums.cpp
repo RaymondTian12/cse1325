@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 			throw new std::runtime_error("");
 		}
 		
-		for (int i = 0; i < argc; i++)
+		for (int i = 1; i < argc; i++) // Start at 1 to skip the program name
 		{
 			std::string arg = argv[i]; // Convert argument immediately to a std::string
 			
