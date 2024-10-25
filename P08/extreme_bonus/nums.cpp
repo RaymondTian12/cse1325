@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 int main(int argc, char* argv[])
 {
@@ -27,7 +28,10 @@ int main(int argc, char* argv[])
 		}
 		
 		// Extreme Bonus:
-		std::sort (words->begin(), words->end());
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count(); // Obtain a time-based seed
+		std::shuffle (numbers.begin(), numbers.end(), std::default_random_engine(seed)); // Use std::shuffle
+		
+		std::sort (words->begin(), words->end()); // Use std::sort
 		
 		std::cout << "Numbers (shuffled):" << std::endl;
 		for (std::string number : numbers)
