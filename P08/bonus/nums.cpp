@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 		{
 			std::string arg = argv[i]; // Convert argument immediately to a std::string
 			
-			if (isdigit(arg[0])
+			if (isdigit(arg[0]))
 			{
 				numbers.push_back(arg);
 			}
@@ -26,13 +26,13 @@ int main(int argc, char* argv[])
 			}
 		}
 		
-		std::count << "Numbers:" << std::endl;
+		std::cout << "Numbers:" << std::endl;
 		for (std::string number : numbers)
 		{
 			std::cout << number << std::endl;
 		}
 		
-		std::count << "Words:" << std::endl;
+		std::cout << "Words:" << std::endl;
 		for (std::string word : words)
 		{
 			std::cout << word << std::endl;
