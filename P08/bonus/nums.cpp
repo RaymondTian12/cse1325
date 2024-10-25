@@ -43,6 +43,7 @@ int main(int argc, char* argv[])
 	catch(...)
 	{
 		std::cerr << "Usage: Must enter arguments on command line" << std::endl;
+		delete words; // Free the memory
 		return -1;
 	}
 }
