@@ -26,6 +26,9 @@ int main(int argc, char* argv[])
 			}
 		}
 		
+		// Extreme Bonus:
+		std::sort (words->begin(), words->end());
+		
 		std::cout << "Numbers (shuffled):" << std::endl;
 		for (std::string number : numbers)
 		{
