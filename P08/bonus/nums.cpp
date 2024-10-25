@@ -27,13 +27,13 @@ int main(int argc, char* argv[])
 		}
 		
 		std::cout << "Numbers:" << std::endl;
-		for (const std::string number : numbers)
+		for (std::string number : numbers)
 		{
 			std::cout << number << std::endl;
 		}
 		
 		std::cout << "Words:" << std::endl;
-		for (const std::string word : *words)
+		for (std::string word : *words)
 		{
 			std::cout << word << std::endl;
 		}
