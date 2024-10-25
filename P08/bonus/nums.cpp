@@ -27,16 +27,18 @@ int main(int argc, char* argv[])
 		}
 		
 		std::cout << "Numbers:" << std::endl;
-		for (std::string number : numbers)
+		for (const std::string number : numbers)
 		{
 			std::cout << number << std::endl;
 		}
 		
 		std::cout << "Words:" << std::endl;
-		for (std::string word : *words)
+		for (const std::string word : *words)
 		{
 			std::cout << word << std::endl;
 		}
+		
+		delete words; // Free the memory
 	}
 	catch(...)
 	{
