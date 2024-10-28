@@ -1,4 +1,4 @@
-CXXFLAGS += --std=c++17
+CXXFLAGS += --std=c++20
 
 nums: nums.cpp
 	-$(CXX) $(CXXFLAGS) nums.cpp -o nums
