@@ -32,10 +32,20 @@ int main(int argc, char* argv[])
 			std::cout << number << std::endl;
 		}
 		
+		if (numbers.empty())
+		{
+			std::cout << "You entered no numbers" << std::endl;
+		}
+		
 		std::cout << "Words:" << std::endl;
 		for (std::string word : *words)
 		{
 			std::cout << word << std::endl;
+		}
+		
+		if (words -> empty())
+		{
+			std::cout << "You entered no words" << std::endl;
 		}
 		
 		delete words; // Free the memory
