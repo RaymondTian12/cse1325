@@ -15,6 +15,10 @@ Clock::Clock(int hours, int minutes, int seconds)
 	{
 		throw std::out_of_range("Invalid second: " + seconds);
 	}
-	
-	
 }
+
+Clock::~Clock()
+{
+}
+
+
