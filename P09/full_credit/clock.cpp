@@ -3,17 +3,17 @@
 Clock::Clock(int hours, int minutes, int seconds)
 	:  _hours{hours}, _minutes{minutes}, _seconds{seconds}
 {
-	if (hours < 0 || hours > 23)
+	if (_hours < 0 || _hours > 23)
 	{
-		throw std::out_of_range("Invalid hour: " + hours);
+		throw std::out_of_range("Invalid hour: " + _hours);
 	}
-	if (minutes < 0 || minutes > 59)
+	if (_minutes < 0 || _minutes > 59)
 	{
-		throw std::out_of_range("Invalid minute: " + minutes);
+		throw std::out_of_range("Invalid minute: " + _minutes);
 	}
-	if (seconds < 0 || seconds > 59)
+	if (_seconds < 0 || _seconds > 59)
 	{
-		throw std::out_of_range("Invalid second: " + seconds);
+		throw std::out_of_range("Invalid second: " + _seconds);
 	}
 }
 
@@ -23,10 +23,24 @@ Clock::~Clock()
 
 void Clock::print()
 {
-	std::cout << std::setfill('0') << std::setw(2) << hours << ":" < std::setw(2) << minutes << ":" << std::setw(2) << seconds << std::endl;
+	std::cout << std::setfill('0') << std::setw(2) << _hours << ":" < std::setw(2) << _minutes << ":" << std::setw(2) << _seconds << std::endl;
 }
 
 void Clock::tic()
 {
-
+	_seconds++;
+	if (_seconds == 60)
+	{
+		_seconds = 0;
+		_minutes++;
+		if (_minutes == 60)
+		{
+			_minutes = 0;
+			_hours++;
+			if (_hours == 24)
+			{
+				_hours = 0;
+			}
+		}
+	}
 }
