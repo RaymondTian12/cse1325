@@ -21,4 +21,12 @@ Clock::~Clock()
 {
 }
 
+void Clock::print()
+{
+	std::cout << std::setfill('0') << std::setw(2) << hours << ":" < std::setw(2) << minutes << ":" << std::setw(2) << seconds << std::endl;
+}
 
+void Clock::tic()
+{
+
+}
