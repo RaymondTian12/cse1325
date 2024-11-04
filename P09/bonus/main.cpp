@@ -1,4 +1,4 @@
-#include "clock.h"
+#include "timer.h"
 #include <iostream>
 
 int main(int argc, char* argv[])
@@ -16,18 +16,18 @@ int main(int argc, char* argv[])
 		int seconds = std::stoi(argv[3]);
 		
 		// Clock::Clock(int hours, int minutes, int seconds)
-		Clock clock(hours, minutes, seconds);
+		Timer timer(hours, minutes, seconds);
 		
 		std::cout << "Enter 'q' to quit." << std::endl;
 		
 		std::string input = "";
 		while (input != "q")
 		{
-			clock.print();
+			timer.print();
 			std::getline(std::cin, input);
 			if (input != "q")
 			{
-				clock.tic();
+				timer.tic();
 			}
 		}
 	}
@@ -35,6 +35,10 @@ int main(int argc, char* argv[])
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 		return -2;
+	}
+	catch(std::runtime_error& e)
+	{
+		std::cout << e.what() << std::endl;
 	}
 	
 	return 0;
