@@ -18,6 +18,8 @@ int main(int argc, char* argv[])
 		// Clock::Clock(int hours, int minutes, int seconds)
 		Clock clock(hours, minutes, seconds);
 		
+		std::cout << "Enter 'q' to quit." << std::endl;
+		
 		std::string input = "";
 		while (input != "q")
 		{
