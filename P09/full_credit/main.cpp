@@ -9,9 +9,31 @@ int main(int argc, char* argv[])
 		return -1;
 	}
 	
-	int hours = std::stoi(argv[1]);
-	int minutes = std::stoi(argv[2]);
-	int seconds = std::stoi(argv[3]);
+	try
+	{
+		int hours = std::stoi(argv[1]);
+		int minutes = std::stoi(argv[2]);
+		int seconds = std::stoi(argv[3]);
+		
+		// Clock::Clock(int hours, int minutes, int seconds)
+		Clock clock(hours, minutes, seconds);
+		
+		char input = 'a';
+		while (input != 'q')
+		{
+			clock.print();
+			std:: cin >> input;
+			if (input != 'q')
+			{
+				clock.tic();
+			}
+		}
+	}
+	catch(std::out_of_range& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+		return -2;
+	}
 	
 	return 0;
 }
