@@ -1,7 +1,7 @@
 CXXFLAGS += --std=c++20
 
-main: main.o clock.o timer.o *.h
-	$(CXX) $(CXXFLAGS) main.o clock.o timer.o -o timer
+main: main.o clock.o timer.o timer_expired.o *.h
+	$(CXX) $(CXXFLAGS) main.o clock.o timer.o timer_expired.o -o timer
 	
 main.o: main.cpp *.h
 	$(CXX) $(CXXFLAGS) -c main.cpp -o main.o
@@ -12,5 +12,8 @@ clock.o: clock.cpp *.h
 timer.o: timer.cpp *.h
 	$(CXX) $(CXXFLAGS) -c timer.cpp -o timer.o
 	
+timer_expired.o: timer_expired.cpp *.h
+	$(CXX) $(CXXFLAGS) -c timer_expired.cpp -o timer_expired.o
+	
 clean:
-	-rm -f *.o *.gch *~ a.out clock
+	-rm -f *.o *.gch *~ a.out timer
