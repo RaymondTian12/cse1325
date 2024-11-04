@@ -18,12 +18,12 @@ int main(int argc, char* argv[])
 		// Clock::Clock(int hours, int minutes, int seconds)
 		Clock clock(hours, minutes, seconds);
 		
-		char input = 'a';
-		while (input != 'q')
+		std::string input = "";
+		while (input != "q")
 		{
 			clock.print();
-			std:: cin >> input;
-			if (input != 'q')
+			std::getline(std::cin, input);
+			if (input != "q")
 			{
 				clock.tic();
 			}
