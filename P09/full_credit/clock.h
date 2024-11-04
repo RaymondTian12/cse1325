@@ -1,7 +1,9 @@
 #ifndef __CLOCK_H
 #define __CLOCK_H
 
-class clock
+#include <iostream>
+
+class Clock
 {
 	protected:
 		int _hours;
