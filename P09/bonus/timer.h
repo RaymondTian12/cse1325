@@ -7,9 +7,9 @@
 class Timer
 {
 	public:
-		Timer(int hours, int minutes, int seconds) : Clock(hours, minutes, seconds);
+		Timer(int hours, int minutes, int seconds);
 		virtual ~Timer();
-		void Tic();
+		void Tic() override;
 };
 
 #endif
