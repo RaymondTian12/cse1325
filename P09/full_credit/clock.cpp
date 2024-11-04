@@ -25,7 +25,7 @@ Clock::~Clock()
 
 void Clock::print()
 {
-	std::cout << std::setfill('0') << std::setw(2) << _hours << ":" << std::setw(2) << _minutes << ":" << std::setw(2) << _seconds << std::endl;
+	std::cout << std::setfill('0') << std::setw(2) << _hours << ":" << std::setw(2) << _minutes << ":" << std::setw(2) << _seconds;
 }
 
 void Clock::tic()
