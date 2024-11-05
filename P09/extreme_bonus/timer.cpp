@@ -1,4 +1,5 @@
 #include "timer.h"
+#include "timer_expired.h"
 
 Timer::Timer(int hours, int minutes, int seconds)
     : Clock(hours, minutes, seconds)
@@ -28,7 +29,7 @@ void Timer::tic()
 				_minutes = 0;
 				_hours = 0;
 				
-				throw std::runtime_error("Timer expired");
+				throw Timer_expired();
 			}
 		}
 	}
