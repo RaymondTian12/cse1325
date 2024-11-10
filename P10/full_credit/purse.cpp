@@ -22,9 +22,9 @@ Purse& Purse::operator++()
 
 Purse Purse::operator++(int)
 {
-	Purse purse = *this;  
+	Purse temp = *this;  
     	++*this;             
-   	return purse;  
+   	return temp;  
 }
 
 Purse Purse::operator+(const Purse& purse)

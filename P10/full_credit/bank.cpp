@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
        		std::cout << "Enter initial deposit (pounds shillings pence): ";
        		std::cin >> pounds >> shillings >> pence;
 		std::cin.ignore();
-		std::cout << "Account " << accountName << " created with £" << pounds << " " << shillings << "s" << pence << "d\n";
+		std::cout << "Account " << accountName << " created with £" << pounds << " " << shillings << "s" << pence << "d\n\n";
 		
 		vault[accountName] = Purse(pounds, shillings, pence);
 	}	
