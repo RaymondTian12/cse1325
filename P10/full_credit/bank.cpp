@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 	std::map<std::string, Purse> vault;
 	int numberOfAccounts;
 	
-	std::cout << "How many accounts would you like to create?";
+	std::cout << "How many accounts would you like to create? ";
 	std::cin >> numberOfAccounts;
 	std::cin.ignore();
 	
