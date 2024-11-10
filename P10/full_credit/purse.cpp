@@ -6,7 +6,7 @@ Purse::Purse(int pounds, int shillings, int pence)
 	rationalize();
 }
 
-std::ostream& operator(std::ostream& ost, const Purse& purse)
+std::ostream& operator<<(std::ostream& ost, const Purse& purse)
 {
 	// Format: £3 4s5d - 3 pounds, 4 is shillings, and 5 is pence 
 	ost << "£" << purse._pounds << " " << purse._shillings << "s" << purse._pence << "d";
