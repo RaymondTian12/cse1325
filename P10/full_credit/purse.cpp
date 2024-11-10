@@ -23,7 +23,7 @@ Purse& Purse::operator++()
 Purse Purse::operator++(int)
 {
 	Purse temp = *this;  
-    	++*this;             
+    	++(*this);             
    	return temp;  
 }
 
