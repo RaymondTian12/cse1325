@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
        		std::getline(std::cin, accountName);
        		
        		Purse purse;
-       		std::cout << "Enter initial deposit (#<pounds> <shillings>s<pence>d): ";
+       		std::cout << "Enter initial deposit (£<pounds> <shillings>s<pence>d): ";
        		std::cin >> purse;
 		std::cin.ignore();
 		std::cout << "Account " << accountName << " created with " << purse << "\n\n";
