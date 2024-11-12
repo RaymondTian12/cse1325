@@ -1,6 +1,6 @@
 #include "purse.h"
 
-const std::string Purse::pound_utf8 = "\u00A3"; // In Unicode U+00A3 
+std::string Purse::pound_utf8 = "\u00A3"; // In Unicode U+00A3 
 
 Purse::Purse(int pounds, int shillings, int pence)
 	: _pounds{pounds}, _shillings{shillings}, _pence{pence}
@@ -18,7 +18,8 @@ std::ostream& operator<<(std::ostream& ost, const Purse& purse)
 std::istream& operator>>(std::istream& ist, Purse& purse)
 {
 	int pounds, shillings, pence;
-	char poundSymbol, shillingSymbol, penceSymbol;
+	std::string poundSymbol;
+	char shillingSymbol, penceSymbol;
 	
 	ist >> poundSymbol >> pounds >> shillings >> shillingSymbol >> pence >> penceSymbol;
 	
