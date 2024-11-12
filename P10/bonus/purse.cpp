@@ -24,7 +24,7 @@ std::istream& operator>>(std::istream& ist, Purse& purse)
 	purse.rationalize();
 	
 	return ist;
-}
+} 
 
 Purse& Purse::operator++()
 {
