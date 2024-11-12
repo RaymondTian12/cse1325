@@ -1,6 +1,6 @@
 #include "purse.h"
 
-std::string Purse::pound_utf8 = "\u00A3"; // In Unicode U+00A3 
+std::string Purse::pound_utf8 = "£"; 
 
 Purse::Purse(int pounds, int shillings, int pence)
 	: _pounds{pounds}, _shillings{shillings}, _pence{pence}
@@ -18,16 +18,22 @@ std::ostream& operator<<(std::ostream& ost, const Purse& purse)
 std::istream& operator>>(std::istream& ist, Purse& purse)
 {
 	int pounds, shillings, pence;
-	std::string poundSymbol;
 	char shillingSymbol, penceSymbol;
+	char temp;
+	std::string poundSymbol = "";
 	
-	ist >> poundSymbol >> pounds >> shillings >> shillingSymbol >> pence >> penceSymbol;
+	for (int i = 0; i < 2; i++)
+	{
+		ist >> temp;
+		poundSymbol += temp;
+	}
 	
 	if (poundSymbol != Purse::pound_utf8)
 	{
 		std::cerr << "Invalid input format: expected " << Purse::pound_utf8 << " symbol\n";
 		return ist;
 	}	
+	ist >> pounds >> shillings >> shillingSymbol >> pence >> penceSymbol;
 	
 	purse = Purse(pounds, shillings, pence);
 	purse.rationalize();
