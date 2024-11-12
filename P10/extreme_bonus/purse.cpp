@@ -18,7 +18,7 @@ std::ostream& operator<<(std::ostream& ost, const Purse& purse)
 std::istream& operator>>(std::istream& ist, Purse& purse)
 {
 	int pounds, shillings, pence;
-	std::string poundSymbol;
+	std::stringg poundSymbol;
 	char shillingSymbol, penceSymbol;
 	
 	ist >> poundSymbol >> pounds >> shillings >> shillingSymbol >> pence >> penceSymbol;
