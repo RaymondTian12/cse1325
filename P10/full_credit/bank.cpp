@@ -25,9 +25,10 @@ int main(int argc, char* argv[])
        		std::cout << "Enter initial deposit (pounds shillings pence): ";
        		std::cin >> pounds >> shillings >> pence;
 		std::cin.ignore();
-		std::cout << "Account " << accountName << " created with £" << pounds << " " << shillings << "s" << pence << "d\n\n";
+		Purse purse(pounds, shillings, pence);
+		std::cout << "Account " << accountName << " created with " << purse << "\n\n";
 		
-		vault[accountName] = Purse(pounds, shillings, pence);
+		vault[accountName] = purse;
 	}	
 	
 	Purse total; // Default Purse object
