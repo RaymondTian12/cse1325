@@ -22,12 +22,13 @@ int main(int argc, char* argv[])
 		std::cout << "Enter the name of the account " << i << ": ";
        		std::getline(std::cin, accountName);
        		
-       		std::cout << "Enter initial deposit (pounds shillings pence): ";
-       		std::cin >> pounds >> shillings >> pence;
+       		Purse purse;
+       		std::cout << "Enter initial deposit (#<pounds> <shillings>s<pence>d): ";
+       		std::cin >> purse;
 		std::cin.ignore();
-		std::cout << "Account " << accountName << " created with £" << pounds << " " << shillings << "s" << pence << "d\n\n";
+		std::cout << "Account " << accountName << " created with " << purse << "\n\n";
 		
-		vault[accountName] = Purse(pounds, shillings, pence);
+		vault[accountName] = purse;
 	}	
 	
 	Purse total; // Default Purse object
