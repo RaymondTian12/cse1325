@@ -9,6 +9,7 @@ class Purse
 		int _pounds;
 		int _shillings;
 		int _pence;
+		static std::string pound_utf;
 		
 		void rationalize();
 		
