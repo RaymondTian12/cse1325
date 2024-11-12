@@ -87,6 +87,26 @@ Purse& Purse::operator-=(const Purse& purse)
     	return *this;
 }
 
+int& Purse::operator[](std::string type)
+{
+	if (type == "£") 
+	{
+        	return _pounds;
+    	} 
+    	else if (type == "s") 
+    	{
+        	return _shillings;
+    	} 
+    	else if (type == "d") 
+    	{
+        	return _pence;
+    	} 
+    	else 
+    	{
+       		throw std::invalid_argument("Invalid type: " + type);
+    	}
+}
+
 void Purse::rationalize() 
 {
 	if (_pence >= 12)
