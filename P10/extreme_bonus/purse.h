@@ -24,6 +24,7 @@ class Purse
 		Purse operator-(const Purse& purse);
 		Purse& operator+=(const Purse& purse);
 		Purse& operator-=(const Purse& purse);
+		int& operator[](std::string type);
 };
 
 #endif
