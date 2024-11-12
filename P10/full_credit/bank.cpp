@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 	
 	std::cout << "==========================\n";
 	std::cout << "Welcome to the Bank Vault!\n";
-	std::cout << "==========================\n";
+	std::cout << "==========================\n\n";
 
 	std::cout << "How many accounts would you like to create? ";
 	std::cin >> numberOfAccounts;
