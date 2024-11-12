@@ -22,6 +22,12 @@ std::istream& operator>>(std::istream& ist, Purse& purse)
 	
 	ist >> poundSymbol >> pounds >> shillings >> shillingSymbol >> pence >> penceSymbol;
 	
+	if (poundSymbol != Purse::pound_utf8)
+	{
+		std::cerr << "Invalid input format: expected " << Purse::pound_utf8 << " symbol\n";
+		return ist;
+	}	
+	
 	purse = Purse(pounds, shillings, pence);
 	purse.rationalize();
 	
