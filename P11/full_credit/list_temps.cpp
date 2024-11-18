@@ -32,10 +32,10 @@ int main(int argc, char* argv[])
 		Temp temperature;
 		
 		// Ignore the first 4 fields
-		std::getline(stream, continent, ' ,');
-		std::getline(stream, country, ' ,');
-		std::getline(stream, state, ' ,');
-		std::getline(stream, region, ' ,');
+		std::getline(stream, continent, ',');
+		std::getline(stream, country, ',');
+		std::getline(stream, state, ',');
+		std::getline(stream, region, ',');
 		
 		stream >> month;
 		stream.ignore(1, ',');  
