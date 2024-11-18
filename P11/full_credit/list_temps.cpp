@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
         	int endYear, endMonth, endDay;
         	
         	std::cout << "Enter the starting date to list (year month day): ";
-        	std::cin >> startYear, startMonth, startDay;
+        	std::cin >> startYear >> startMonth >> startDay;
         	
         	std::cout << "Enter the ending date to list (year month day): ";
         	std::cin >> endYear >> endMonth >> endDay;
