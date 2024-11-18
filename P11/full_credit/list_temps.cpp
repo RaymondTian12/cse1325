@@ -1,6 +1,8 @@
 #include "date.h"
 #include <iomanip>
 #include <map>
+#include <sstream>
+#include <fstream>
 
 typedef double Temp; 
 
@@ -27,24 +29,24 @@ int main(int argc, char* argv[])
 	// Ignore the first 4 fields 
 	while (std::getline(ist, line))
 	{
-		std::istringstream stream{line};
+		std::istringstream iss{line};
 		std::string continent, country, state, region; 
 		int month, day, year;
 		Temp temperature;
 		
 		// Ignore the first 4 fields
-		std::getline(stream, continent, ',');
-		std::getline(stream, country, ',');
-		std::getline(stream, state, ',');
-		std::getline(stream, region, ',');
+		std::getline(iss, continent, ',');
+		std::getline(iss, country, ',');
+		std::getline(iss, state, ',');
+		std::getline(iss, region, ',');
 		
-		stream >> month;
-		stream.ignore(1, ',');  
-		stream >> day;
-		stream.ignore(1, ','); 
-		stream >> year;
-		stream.ignore(1, ',');
-		stream >> temperature;
+		iss >> month;
+		iss.ignore(1, ',');  
+		iss >> day;
+		iss.ignore(1, ','); 
+		iss >> year;
+		iss.ignore(1, ',');
+		iss >> temperature;
 		
 		Date date(year, month, day);
 		temps[date] = temperature;
