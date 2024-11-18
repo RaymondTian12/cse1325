@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
         		if (date >= start && date <= end)
         		{
         			std::cout << std::setw(10) << date << "\t";
-               			std::cout << std::fixed << std::setprecision(2) << temp << "\n";
+               			std::cout << std::fixed << std::setprecision(1) << temp << "\n";
         		}
         		it++;
         	}
