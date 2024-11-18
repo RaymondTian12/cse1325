@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
 		temps[date] = temperature;
 	}
 	
-	while (std::cin)
+	while (true)
 	{
 		int startYear, startMonth, startDay;
         	int endYear, endMonth, endDay;
@@ -60,8 +60,19 @@ int main(int argc, char* argv[])
         	std::cout << "Enter the starting date to list (year month day): ";
         	std::cin >> startYear >> startMonth >> startDay;
         	
+        	if (!std::cin) 
+        	{
+       		 	break; 
+   		}
+
+        	
         	std::cout << "Enter the ending date to list (year month day): ";
         	std::cin >> endYear >> endMonth >> endDay;
+        	
+        	if (!std::cin) 
+        	{
+       		 	break; 
+   		}
         	
         	Date start(startYear, startMonth, startDay);
         	Date end(endYear, endMonth, endDay);
@@ -79,8 +90,5 @@ int main(int argc, char* argv[])
         		}
         		it++;
         	}
-        	
-
-        	
 	}
 }
