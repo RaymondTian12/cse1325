@@ -49,5 +49,9 @@ int main(int argc, char* argv[])
 		temps[date] = temperature;
 	}
 	
-	
+	while (std::cin)
+	{
+		int startYear, startMonth, startDay;
+        	int endYear, endMonth, endDay;
+	}
 }
