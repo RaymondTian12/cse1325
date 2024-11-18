@@ -69,10 +69,10 @@ int main(int argc, char* argv[])
         		Date date = it -> first;
         		Temp temp = it -> second;
         		
-        		if (currentDate >= startDate && currentDate <= endDate)
+        		if (date >= start && date <= end)
         		{
-        			std::cout << std::setw(10) << currentDate << "\t";
-               			std::cout << std::fixed << std::setprecision(2) << temperature << "\n";
+        			std::cout << std::setw(10) << date << "\t";
+               			std::cout << std::fixed << std::setprecision(2) << temp << "\n";
         		}
         		it++;
         	}
