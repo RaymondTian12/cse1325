@@ -77,8 +77,13 @@ int main(int argc, char* argv[])
         	Date start(startYear, startMonth, startDay);
         	Date end(endYear, endMonth, endDay);
         	
-        	std::map<Date, Temp>::iterator it = temps.begin();
-        	while (it != temps.end())
+        	std::map<Date, Temp>::iterator it = temps.find(first);
+        	if (it == temps.end()) 
+        	{
+        		break; 
+    		}
+        	
+        	while (it != temps.end() && it->first <= end)
         	{
         		Date date = it -> first;
         		Temp temp = it -> second;
