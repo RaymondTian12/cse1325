@@ -53,5 +53,31 @@ int main(int argc, char* argv[])
 	{
 		int startYear, startMonth, startDay;
         	int endYear, endMonth, endDay;
+        	
+        	std::cout << "Enter the starting date to list (year month day): ";
+        	std::cin >> startYear, startMonth, startDay;
+        	
+        	std::cout << "Enter the ending date to list (year month day): ";
+        	std::cin >> endYear >> endMonth >> endDay;
+        	
+        	Date start(startYear, startMonth, startDay);
+        	Date end(endYear, endMonth, endDay);
+        	
+        	std::map<Date, Temp>::iterator it = temps.begin();
+        	while (it != temps.end())
+        	{
+        		Date date = it -> first;
+        		Temp temp = it -> second;
+        		
+        		if (currentDate >= startDate && currentDate <= endDate)
+        		{
+        			std::cout << std::setw(10) << currentDate << "\t";
+               			std::cout << std::fixed << std::setprecision(2) << temperature << "\n";
+        		}
+        		it++;
+        	}
+        	
+
+        	
 	}
 }
