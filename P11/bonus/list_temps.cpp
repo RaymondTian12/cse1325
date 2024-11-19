@@ -80,6 +80,7 @@ int main(int argc, char* argv[])
         	std::map<Date, Temp>::iterator it = temps.find(start);
         	if (it == temps.end()) 
         	{
+        		std::cerr << "Invalid starting date\n";
         		break; 
     		}
         	
