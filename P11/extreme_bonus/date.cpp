@@ -26,7 +26,7 @@ std::istream& operator>>(std::istream& ist, Date& date)
     	int year, month, day;
 
    	
-   	if ((is >> year >> separator1 >> month >> separator2 >> day) && separator1 == '/' && separator2 == '/') 
+   	if ((ist >> year >> separator1 >> month >> separator2 >> day) && separator1 == '/' && separator2 == '/') 
    	{
 		date._year = year;
 		date._month = month;
@@ -34,7 +34,7 @@ std::istream& operator>>(std::istream& ist, Date& date)
     	} 
     	else 
     	{
-		is.setstate(std::ios::failbit);
+		ist.setstate(std::ios::failbit);
     	}
 
     return ist;
