@@ -22,5 +22,20 @@ std::ostream& operator<<(std::ostream& ost, const Date& date)
 
 std::istream& operator>>(std::istream& ist, Date& date)
 {
-	
+	char separator1, separator2;
+    	int year, month, day;
+
+   	
+   	if ((is >> year >> separator1 >> month >> separator2 >> day) && separator1 == '/' && separator2 == '/') 
+   	{
+		date._year = year;
+		date._month = month;
+		date._day = day;
+    	} 
+    	else 
+    	{
+		is.setstate(std::ios::failbit);
+    	}
+
+    return ist;
 }
