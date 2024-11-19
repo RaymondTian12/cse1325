@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
        		
         	if (!(std::cin >> start))
         	{
-            		std::cerr << "Invalid date format or input. Exiting.\n";
             		break;
         	}
 
@@ -68,7 +67,6 @@ int main(int argc, char* argv[])
 		
 		if (!(std::cin >> end))
 		{
-		    std::cerr << "Invalid date format or input. Exiting.\n";
 		    break;
 		}
 
