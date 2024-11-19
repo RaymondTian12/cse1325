@@ -14,6 +14,7 @@ class Date
 		Date(int year = 1970, int month = 1, int day = 1); // January 1, 1970
 		auto operator<=>(const Date&) const = default;
 		friend std::ostream& operator<<(std::ostream& ost, const Date& date);
+		friend std::istream& operator>>(std::istream& ist, Date& date);
 };
 
 #endif
