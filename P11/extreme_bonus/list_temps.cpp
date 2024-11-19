@@ -54,47 +54,47 @@ int main(int argc, char* argv[])
 	
 	while (true)
 	{
-		int startYear, startMonth, startDay;
-        	int endYear, endMonth, endDay;
-        	
-        	std::cout << "Enter the starting date to list (year month day): ";
-        	std::cin >> startYear >> startMonth >> startDay;
-        	
-        	if (!std::cin) 
+		std::cout << "Enter the starting date to list (YYYY/MM/DD): ";
+       		Date start;
+       		
+        	if (!(std::cin >> start))
         	{
-       		 	break; 
-   		}
-
-        	
-        	std::cout << "Enter the ending date to list (year month day): ";
-        	std::cin >> endYear >> endMonth >> endDay;
-        	
-        	if (!std::cin) 
-        	{
-       		 	break; 
-   		}
-        	
-        	Date start(startYear, startMonth, startDay);
-        	Date end(endYear, endMonth, endDay);
-        	
-        	std::map<Date, Temp>::iterator it = temps.find(start);
-        	if (it == temps.end()) 
-        	{
-        		std::cerr << "Invalid starting date\n";
-        		break; 
-    		}
-        	
-        	while (it != temps.end() && it->first <= end)
-        	{
-        		Date date = it -> first;
-        		Temp temp = it -> second;
-        		
-        		if (date >= start && date <= end)
-        		{
-        			std::cout << std::setw(10) << date << "\t";
-               			std::cout << std::fixed << std::setprecision(1) << temp << "\n";
-        		}
-        		it++;
+            		std::cerr << "Invalid date format or input. Exiting.\n";
+            		break;
         	}
+
+        	std::cout << "Enter the ending date to list (year/month/day): ";
+		Date end;
+		
+		if (!(std::cin >> end))
+		{
+		    std::cerr << "Invalid date format or input. Exiting.\n";
+		    break;
+		}
+
+		if (start > end)
+		{
+		    std::cerr << end << " is earlier than " << start << "\n";
+		    continue;
+		}
+
+		auto it = temps.find(start);
+		if (it == temps.end())
+		{
+		    std::cerr << start << " is not in the database!\n";
+		    continue;
+		}
+
+		// Iterate and print results
+		while (it != temps.end() && it->first <= end)
+		{
+		    Date date = it->first;
+		    Temp temp = it->second;
+
+		    std::cout << std::setw(10) << date << "\t";
+		    std::cout << std::fixed << std::setprecision(1) << temp << "\n";
+
+		    ++it;
+		}
 	}
 }
