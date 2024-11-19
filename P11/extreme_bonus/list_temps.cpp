@@ -79,6 +79,13 @@ int main(int argc, char* argv[])
 		}
 
 		auto it = temps.find(start);
+		
+		if (temps.find(start) == temps.end())
+	    	{
+			std::cerr << start << " is not in the database!\n";
+			continue; 
+	    	}
+	    	
 		if (it == temps.end())
 		{
 		    std::cerr << start << " is not in the database!\n";
