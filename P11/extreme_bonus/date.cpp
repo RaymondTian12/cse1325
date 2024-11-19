@@ -1,5 +1,6 @@
 #include "date.h"
 #include <iomanip>
+#include <sstream>
 
 Date::Date(int year, int month, int day)
 	: _year{year}, _month{month}, _day{day}
@@ -17,4 +18,9 @@ std::ostream& operator<<(std::ostream& ost, const Date& date)
         std::setfill(old_setfill);
         
         return ost;
+}
+
+std::istream& operator>>(std::istream& ist, Date& date)
+{
+	
 }
